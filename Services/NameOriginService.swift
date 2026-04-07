@@ -799,5 +799,306 @@ final class NameOriginService {
             meaning: "Krásná jako bůh Ing (Ing + fridhr = krásný)",
             funFact: "Skandinávské jméno, které se rozšířilo do celé Evropy. Ingrid Bergman - švédská herečka - ztvárnila Casablanku a získala tři Oscary."
         ),
+
+        // MARK: - Dalsi muzska jmena
+
+        "arnost": .init(
+            language: "Germánský",
+            meaning: "Vážný, houževnatý, bojovný orel (Arnust = arn + ust)",
+            funFact: "Arnošt z Pardubic byl v roce 1344 jmenován prvním arcibiskupem pražským - Praha se tak stala arcibiskupstvím nezávislým na Mohuči. Bez Arnošta by nebyl ani Karel IV."
+        ),
+        "bartolomej": .init(
+            language: "Hebrejský / Aramejský",
+            meaning: "Syn Talmaie (bar + Talmai = ten, kdo brázdí)",
+            funFact: "Apoštol Bartoloměj byl podle tradice stažen z kůže zaživa - je patronem koželuhů. Masakr na svátek sv. Bartoloměje (24. 8. 1572) v Paříži si vyžádal tisíce hugenottských životů."
+        ),
+        "bedrich": .init(
+            language: "Germánský",
+            meaning: "Mírumilovný vládce (frid = mír + ric = vládce)",
+            funFact: "Bedřich Smetana složil Vltavu - nejznámější českou orchestrální skladbu světa. Psal ji, když byl zcela hluchý. Friedrich Nietzsche i Friedrich Schiller nesli toto slavné jméno."
+        ),
+        "blazej": .init(
+            language: "Latinský / Řecký",
+            meaning: "Koktající nebo zářící (blaisos)",
+            funFact: "Sv. Blažej (3. 2.) je patronem krční nemocí - kněží v tento den žehnají hrdlům věřících dvěma zkříženými svícemi. Legenda říká, že zachránil dítě, jemuž uvízla kost v hrdle."
+        ),
+        "bohumil": .init(
+            language: "Slovanský",
+            meaning: "Bohu milý, Bohem milovaný (bohu + milý)",
+            funFact: "Bohumil Hrabal je jedním z nejpřekládanějších českých prozaiků - napsal Ostře sledované vlaky a Příliš hlučnou samotu. Psal v hospodách, zejména v pražském Zlatém tygru."
+        ),
+        "ferdinand": .init(
+            language: "Germánský (vizigótský)",
+            meaning: "Odvážný cestovatel (ferd = cesta + nand = odvaha)",
+            funFact: "Ferdinand Magellan jako první obeplul zeměkouli (1519-1522). Jméno neslo pět španělských králů a řada habsburských císařů, kteří vládli i Čechám."
+        ),
+        "gabriel": .init(
+            language: "Hebrejský",
+            meaning: "Bůh je má síla (Gavriel = Bůh + el)",
+            funFact: "Archanděl Gabriel zvěstoval Marii početí Ježíše a v islámu diktoval Mohammedovi Korán. Je patronem komunikace - dnes i telekomunikací a novinářů."
+        ),
+        "gustav": .init(
+            language: "Severský (švédský)",
+            meaning: "Opora Gótů (Gautr + stafr = hůl, opora)",
+            funFact: "Slavní nositelé: Gustav Klimt maloval zlatem, Gustave Eiffel postavil věž v Paříži a Gustav Mahler složil 10 symfonií. Jméno neslo šest švédských králů od 16. století."
+        ),
+        "herman": .init(
+            language: "Germánský",
+            meaning: "Válečník, muž vojska (heri = vojsko + man = muž)",
+            funFact: "Germánský Arminius (Heřman) porazil v roce 9 n. l. tři římské legie v bitvě v Teutoburském lese a zastavil expanzi Říma do Germánie. Herman Melville napsal Moby Dicka."
+        ),
+        "hubert": .init(
+            language: "Germánský",
+            meaning: "Zářivý duch, světlá mysl (hug = duch + beraht = zářivý)",
+            funFact: "Sv. Hubert je patronem myslivců - prý při lovu spatřil jelena se zářícím křížem mezi parohy a obrátil se na víru. Hubertovy jízdy a mše jsou v Evropě tradicí dodnes."
+        ),
+        "jachym": .init(
+            language: "Hebrejský",
+            meaning: "Bůh ustanoví, Bůh pozdvihne (Yehoyaqim)",
+            funFact: "Jáchym je tradičně považován za otce Panny Marie. České město Jáchymov dalo svým stříbrným tolarem základ slovu dollar - tolar pochází z Joachimsthaler."
+        ),
+        "jaromir": .init(
+            language: "Slovanský",
+            meaning: "Jarý mír, mír jara (jaro + mír)",
+            funFact: "Přemyslovský kníže Jaromír vládl Čechám třikrát - pokaždé byl vyhnán a pokaždé se vrátil. Jméno nese i nejslavnější český hokejista všech dob - Jaromír Jágr."
+        ),
+        "kazimir": .init(
+            language: "Slovanský",
+            meaning: "Ten, kdo hlásá mír (kazati = kázat + mír)",
+            funFact: "Kazimír Veliký převzal Polsko dřevěné a zanechal kamenné - je nejslavnějším polským středověkým králem. Kazimír Malevič namaloval Černý čtverec - první ryze abstraktní obraz."
+        ),
+        "klement": .init(
+            language: "Latinský",
+            meaning: "Mírný, milosrdný, laskavý (clemens)",
+            funFact: "Sv. Klement I. byl čtvrtým papežem - jeho jméno neslo 14 dalších papežů. Klement Gottwald byl prvním komunistickým prezidentem Československa od února 1948."
+        ),
+        "leos": .init(
+            language: "Slovanský / Latinský",
+            meaning: "Lev - domácká forma Leopoldova nebo ze slova lev",
+            funFact: "Leoš Janáček je jedním z nejvýznamnějších českých skladatelů - opery Její pastorkyňa a Věc Makropulos patří k repertoáru světových scén. Svá nejslavnější díla složil po šedesátce."
+        ),
+        "leopold": .init(
+            language: "Germánský",
+            meaning: "Odvážný lid (leud = lid + bald = odvážný, smělý)",
+            funFact: "Leopold Mozart byl otcem a učitelem Wolfganga Amadea - od útlého věku ho vozil po evropských dvorech. Jméno neslo mnoho habsburských císařů, kteří vládli i Čechám."
+        ),
+        "ludvik": .init(
+            language: "Germánský (franský)",
+            meaning: "Slavný válečník (hlud = sláva + wig = boj)",
+            funFact: "Jméno neslo 18 francouzských králů - Ludvík XIV. si říkal Král Slunce a Versailles bylo vzorem pro všechny evropské dvory. Ludwig van Beethoven složil 9 symfonií v době, kdy byl zcela hluchý."
+        ),
+        "matyas": .init(
+            language: "Hebrejský",
+            meaning: "Boží dar (Mattityahu = dar od Jahveho)",
+            funFact: "Matyáš Korvín byl nejslavnější uherský renesanční král - budoval Budín jako centrum vědy. Apoštol Matyáš byl losem vybrán za nástupce Jidáše - jediný apoštol určený tímto způsobem."
+        ),
+        "mikulas": .init(
+            language: "Řecký",
+            meaning: "Vítěz lidu (nike = vítězství + laos = lid)",
+            funFact: "Sv. Mikuláš z Myry tajně házel zlaté váčky chudým dívkám oknem - odtud zvyk dávání dárků. Přes holandský Sinterklaas se stal Santou Clausem - nejslavnější dárkovou postavou světa."
+        ),
+        "milos": .init(
+            language: "Slovanský",
+            meaning: "Milostivý, laskavý (milŭ = milý)",
+            funFact: "Miloš Forman je jediný Čech, který dvakrát získal Oscara za nejlepší režii - za Přelet nad kukaččím hnízdem (1975) a Amadea (1984)."
+        ),
+        "mojmir": .init(
+            language: "Slovanský",
+            meaning: "Můj mír, vlastní mír (moj = můj + mír)",
+            funFact: "Mojmír I. (zemřel 846) byl zakladatelem Velkomoravské říše - prvního státního celku na území dnešní Moravy a Slovenska. Byl pokřtěn salcburskými kněžími."
+        ),
+        "norbert": .init(
+            language: "Germánský",
+            meaning: "Zář severu (nord = sever + beraht = zářivý)",
+            funFact: "Sv. Norbert z Xanten (12. stol.) je zakladatelem premonstrátského řádu - bílých mnichů. Premonstrátský klášter Strahov v Praze patří k nejkrásnějším klášterům středoevropského baroka."
+        ),
+        "oskar": .init(
+            language: "Severský / Anglosaský",
+            meaning: "Boží kopí, božský válečník (os = bůh + gar = kopí)",
+            funFact: "Oskar Schindler zachránil přes 1 200 Židů za druhé světové války. Filmová cena Oscar dostala přezdívku podle strýce jedné ze zakladatelek, který prý připomínal sochu."
+        ),
+        "patrik": .init(
+            language: "Latinský",
+            meaning: "Šlechtic, patricij (patricius = příslušník patricijského rodu)",
+            funFact: "Sv. Patrik (17. 3.) vysvětlil Trojici pomocí trojlístku jetele - odtud irský symbol. Den sv. Patrika slaví stovky měst po celém světě, včetně řeky obarvené zeleně v Chicagu."
+        ),
+        "premysl": .init(
+            language: "Slovanský",
+            meaning: "Přemýšlivý, ten kdo vše promyslí (přemysl = promyšlenost)",
+            funFact: "Přemysl Oráč je legendárním zakladatelem přemyslovské dynastie - Libuše si ho vybrala za manžela při orbě na poli. Přemyslovci vládli Čechám přes 400 let."
+        ),
+        "rastislav": .init(
+            language: "Slovanský",
+            meaning: "Rozrůstající se sláva (rasti = růst + slava)",
+            funFact: "Kníže Rastislav Moravský pozval v roce 863 Cyrila a Metoděje, aby přinesli křesťanství ve slovanském jazyce - tím dal podnět ke vzniku první slovanské abecedy a literatury."
+        ),
+        "richard": .init(
+            language: "Germánský",
+            meaning: "Mocný vládce (ric = moc + hard = silný, tvrdý)",
+            funFact: "Richard Lví srdce vedl třetí křížovou výpravu - přestože byl anglickým králem, v Anglii strávil pouhých šest měsíců. Richard Wagner složil čtyřdílný cyklus Prsten Nibelungů."
+        ),
+        "robert": .init(
+            language: "Germánský",
+            meaning: "Zářivou slávou proslulý (hrod = sláva + beraht = zářivý)",
+            funFact: "Robert Bruce porazil Angličany v bitvě u Bannockburnu (1314) a vydobyl Skotsku nezávislost. Legenda říká, že mu k vytrvalosti pomohl pavouk, který znovu a znovu spřádal síť."
+        ),
+        "rudolf": .init(
+            language: "Germánský",
+            meaning: "Slavný vlk (hrod = sláva + ulf = vlk)",
+            funFact: "Rudolf II. Habsburský přesídlil císařský dvůr do Prahy - ta se stala vědeckým centrem Evropy. Pozval Tychona de Brahe a Keplera, kteří zde formulovali zákony pohybu planet."
+        ),
+        "samuel": .init(
+            language: "Hebrejský",
+            meaning: "Bůh vyslyšel (shama = slyšet + El = Bůh)",
+            funFact: "Prorok Samuel pomazal prvního i druhého izraelského krále - Saula i Davida. Jméno Sam je jednou z nejuniverzálnějších zkrácenin světa - oblíbené od Anglie po Japonsko."
+        ),
+        "simon": .init(
+            language: "Hebrejský",
+            meaning: "Ten, kdo slyší (shama = slyšet)",
+            funFact: "Apoštol Šimon Petr dostal od Ježíše nové jméno Petros (Skála) a stal se prvním papežem. Šimon Mág - čaroděj z Nového zákona - dal základ slovu simonie (kupování církevních úřadů)."
+        ),
+        "tadeas": .init(
+            language: "Hebrejský / Aramejský",
+            meaning: "Chválopěv, odvážné srdce (Thaddaeus)",
+            funFact: "Apoštol Tadeáš je patronem beznadějných situací - říká se, že modlitby k němu pomáhají, když vše ostatní selže. Na Karlově mostě v Praze stojí jeho socha."
+        ),
+        "tibor": .init(
+            language: "Latinský",
+            meaning: "Od řeky Tibery (Tiberius = ten od Tibery)",
+            funFact: "Tiberius byl druhý římský císař - nástupce Augusta. Řeka Tiber protéká přímo centrem Říma a Vatikánem, kolem Andělského hradu postaveného jako Hadriánovo mauzoleum."
+        ),
+        "valentin": .init(
+            language: "Latinský",
+            meaning: "Zdravý, silný, statný (valens = silný)",
+            funFact: "Sv. Valentýn (14. 2.) byl popravený křesťanský kněz. Spojení s láskou pochází ze středověku - básníci věřili, že ptáci si v tento den vybírají partnera. Dnes je svátek oslavován ve stovkách zemí."
+        ),
+        "vavrinec": .init(
+            language: "Latinský",
+            meaning: "Z Laurentu, vavřínový (Laurentius)",
+            funFact: "Sv. Vavřinec byl upečen na roštu a podle legendy polohu svého těla otočil slovy: Tato strana je hotova, obrante mě. Je patronem kuchařů a komiků. Jméno Lorenzo je italskou formou."
+        ),
+        "vilem": .init(
+            language: "Germánský",
+            meaning: "Ochránce vůle (wil = vůle + helm = přilba, ochrana)",
+            funFact: "Vilém Dobyvatel ovládl Anglii v roce 1066 - bitva u Hastingsu přidala do angličtiny tisíce francouzských slov. Jméno neslo 4 anglické, 3 německé a 2 holandské krále."
+        ),
+        "vincenc": .init(
+            language: "Latinský",
+            meaning: "Vítězící, dobyvatel (vincere = vítězit)",
+            funFact: "Vincent van Gogh prodal za života jediný obraz - přesto patří k nejdražším umělcům historie. Sv. Vincenc de Paul je patronem charitativní práce a pomocníků chudých."
+        ),
+        "vladislav": .init(
+            language: "Slovanský",
+            meaning: "Slavný vládce (vladeti = vládnout + slava)",
+            funFact: "Vladislavský sál na Pražském hradě - největší gotický sál střední Evropy - dal postavit Vladislav II. Jagellonský. Byl tak rozlehlý, že se v něm konaly rytířské turnaje na koních."
+        ),
+        "vratislav": .init(
+            language: "Slovanský",
+            meaning: "Navracející se sláva (vrata = návrat + slava)",
+            funFact: "Přemyslovský Vratislav II. byl v roce 1085 korunován prvním českým králem. Polské město Wroclaw (německy Breslau) nese jeho jméno - středověký latinský název byl Wratislavia."
+        ),
+        "zikmund": .init(
+            language: "Germánský",
+            meaning: "Vítězná ochrana (sieg = vítězství + mund = ochrana)",
+            funFact: "Císař Zikmund svolal kostnický koncil (1414-1418), kde byl Jan Hus odsouzen a upálen. Zikmund mu přislíbil ochranu - tato zrada patří k nejcitlivějším místům českých dějin."
+        ),
+
+        // MARK: - Dalsi zenska jmena
+
+        "amalie": .init(
+            language: "Germánský",
+            meaning: "Pracovitá, pilná (amal = práce, rod Amalů)",
+            funFact: "Jméno bylo oblíbené v německých a skandinávských královských rodinách. Amálie van Oranje je současná holandská korunní princezna. Z tohoto jména vznikla zkrácenina Emma."
+        ),
+        "dagmar": .init(
+            language: "Severský (dánský)",
+            meaning: "Denní dívka, záře dne (dagr = den + maer = dívka)",
+            funFact: "Dagmar z Čech (česky Markéta Přemyslovna) se provdala za dánského krále Valdemara II. a stala se milovanou dánskou královnou. Dodnes je v Dánsku symbolem ideální královny."
+        ),
+        "drahomira": .init(
+            language: "Slovanský",
+            meaning: "Drahá světu, vzácný mír (drahý + mír)",
+            funFact: "Drahomíra byla matka sv. Václava a nechala zavraždit jeho babičku Ludmilu - dodnes symbol matky stojící v cestě dítěti. Přesto sama vychovala patrona Čech."
+        ),
+        "eleonora": .init(
+            language: "Starofrancouzský / Provensálský",
+            meaning: "Záře, světlo (alienor); nebo varianta Heleny",
+            funFact: "Eleonora Akvitánská (12. stol.) byla nejmocnější žena středověku - nejprve královna Francie, poté Anglie. Sama vedla křížovou výpravu a mezi jejíma synama byl Richard Lví srdce."
+        ),
+        "ema": .init(
+            language: "Germánský",
+            meaning: "Celá, úplná, všeobsahující (ermen/emma = celek)",
+            funFact: "Emma Bovaryová od Flauberta (1856) je jednou z nejslavnějších románových postav světové literatury. Jméno je dlouhodobě v top 10 nejoblíbenějších jmen v Anglii, Francii i Čechách."
+        ),
+        "emma": .init(
+            language: "Germánský",
+            meaning: "Celá, úplná, všeobsahující (ermen/emma = celek)",
+            funFact: "Emma Bovaryová od Flauberta (1856) je jednou z nejslavnějších románových postav světové literatury. Jméno je dlouhodobě v top 10 nejoblíbenějších jmen v Anglii, Francii i Čechách."
+        ),
+        "evzenie": .init(
+            language: "Řecký",
+            meaning: "Vznešená, dobře zrozená (eu = dobře + genos = rod)",
+            funFact: "Evženie Montijová byla manželkou Napoleona III. a poslední francouzská císařovna. Jméno Eugenia dala řada šlechtičen - od španělských vévodkyň po ruské carevičny."
+        ),
+        "julie": .init(
+            language: "Latinský",
+            meaning: "Z rodu Iuliů (Julius gens)",
+            funFact: "Shakespearova Julie zemřela ve věku 13 let - asi nejznámější literární postava všech dob. Julius Caesar pocházel ze stejného rodu - slovo Caesar dalo základ slovům Kaiser i Car."
+        ),
+        "laura": .init(
+            language: "Latinský",
+            meaning: "Vavřínová, věnec ze vavřínu (laurus = vavřín)",
+            funFact: "Petrarch se do Laury zamiloval pohledem v kostele (1327) a věnoval jí 366 sonetů sbírky Canzoniere. Laureát = ověnčený vavřínem - od Laury pochází titul pro nositele literárního ocenění."
+        ),
+        "leona": .init(
+            language: "Latinský",
+            meaning: "Lvice, ženský lev (leona od leo = lev)",
+            funFact: "Lev je od starověku symbolem královské moci a odvahy. Zlatý lev je symbolem českého státního znaku - poprvé se objevil na pečeti Přemysla Otakara I. ve 12. století."
+        ),
+        "nadezda": .init(
+            language: "Slovanský",
+            meaning: "Naděje (naděje = Spes)",
+            funFact: "Naděžda je slovanský překlad křesťanské ctnosti Spes - spolu s Vírou a Láskou tvoří trojici nejvyšších ctností. Naděžda Krupská byla manželkou a spolupracovnicí Vladimíra Lenina."
+        ),
+        "nela": .init(
+            language: "Latinský / Hebrejský",
+            meaning: "Zdrobnělina Daniely, Petronely nebo Cornélie",
+            funFact: "Nela je oblíbená česká a slovenská domácká forma hned několika jmen. Cornelia, dcera Scipiona Africana, vychovala slavné římské reformátory Gracchy a odmítla nabídku k sňatku od egyptského krále."
+        ),
+        "rozalie": .init(
+            language: "Latinský",
+            meaning: "Růžová, z růží (rosalia = svátek růží)",
+            funFact: "Sv. Rozálie je patronkou Palerma na Sicílii - prý zastavila morovou epidemii v roce 1625. Rosalia byl římský svátek, kdy se hroby zdobily růžemi a věřilo se v ochranu zemřelých."
+        ),
+        "sandra": .init(
+            language: "Řecký",
+            meaning: "Obránkyně lidí - zkrácenina Alexandry (alexein + aner)",
+            funFact: "Sandra je italská zkrácenina Alessandry/Alexandry. Alexandr Makedonský dobyl největší říši starověku - jeho jméno v ženské podobě nosí miliony žen od Evropy po Japonsko."
+        ),
+        "sarka": .init(
+            language: "Slovanský / Hebrejský",
+            meaning: "Malá kněžna - nebo z hebrejského Sarah (kněžna)",
+            funFact: "Podle staré pověsti se bojovnice Šárka dala uvázat ke stromu, lákadlem svedla Ctirada do léčky a spustila Dívčí válku. Přírodní rezervace Divoká Šárka v Praze nese její jméno dodnes."
+        ),
+        "tatana": .init(
+            language: "Latinský (sabinský původ)",
+            meaning: "Z kmene Tatiani - sabinský kmen žijící v Latiu",
+            funFact: "Sv. Taťána (25. 1.) je patronkou ruských studentů - na Lomonosovově univerzitě se slaví Tatyanin den jako velký svátek. Taťána z Puškinova Evžena Oněgina je dodnes vzorem ruského ženství."
+        ),
+        "vilma": .init(
+            language: "Germánský",
+            meaning: "Ochránkyně vůle - ženská forma Viléma (wil + helm)",
+            funFact: "Vilma je česká forma Wilhelminy. Holandská královna Wilhelmina odmítla kapitulovat před Hitlerem a z Londýna vedla odboj - stala se symbolem holandského odporu za 2. světové války."
+        ),
+        "zaneta": .init(
+            language: "Francouzský (z hebrejského)",
+            meaning: "Bůh je milostivý - francouzská zdrobnělina Jany (Jeannette)",
+            funFact: "Žaneta je česká forma francouzského Jeannette - laskavé zdrobněliny jména Jeanne (Jana). Johanka z Arku ve věku 17 let vedla francouzskou armádu a zachránila Francii."
+        ),
+        "zora": .init(
+            language: "Slovanský",
+            meaning: "Ranní záře, úsvit (zora = jitřní červánky)",
+            funFact: "Zora je slovanský ekvivalent latinské Aurory - bohyně jitřní záře. Ve slovanské mytologii přinášela Zora světlo do světa každé ráno, stejně jako Aurora otvírala bránu slunci."
+        ),
     ]
 }
