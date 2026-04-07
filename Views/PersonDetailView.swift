@@ -156,7 +156,7 @@ struct PersonDetailView: View {
                 let zodiac = zodiacFor(month: m, day: d)
                 dateRow(
                     icon: "birthday.cake.fill", iconColor: .pink,
-                    label: person.birthYear.map { "Narozeniny · věk \(age(birthYear: $0, month: m, day: d))" } ?? "Narozeniny",
+                    label: person.birthYear.map { "Narozeniny · slaví \(upcomingAge(birthYear: $0, month: m, day: d)) let" } ?? "Narozeniny",
                     dateStr: person.birthYear.map { "\(d). \(monthName(m)) \($0)" } ?? "\(d). \(monthName(m))",
                     daysUntil: days,
                     subtitle: "\(zodiac.symbol) \(zodiac.name)"
@@ -259,15 +259,19 @@ struct PersonDetailView: View {
         ).day ?? 0
     }
 
-    private func age(birthYear: Int, month: Int, day: Int) -> Int {
+    /// Věk, který osoba oslaví na svých příštích narozeninách
+    private func upcomingAge(birthYear: Int, month: Int, day: Int) -> Int {
         let cal = Calendar.current
         let today = Date()
-        let y = cal.component(.year,  from: today)
-        let m = cal.component(.month, from: today)
-        let d = cal.component(.day,   from: today)
-        var a = y - birthYear
-        if m < month || (m == month && d < day) { a -= 1 }
-        return max(0, a)
+        let currentYear  = cal.component(.year,  from: today)
+        let currentMonth = cal.component(.month, from: today)
+        let currentDay   = cal.component(.day,   from: today)
+        // Narozeniny letos ještě nenastaly (nebo jsou dnes) → slaví letos
+        if currentMonth < month || (currentMonth == month && currentDay <= day) {
+            return currentYear - birthYear
+        }
+        // Narozeniny letos už proběhly → slaví příští rok
+        return currentYear + 1 - birthYear
     }
 
     private func monthName(_ m: Int) -> String {
