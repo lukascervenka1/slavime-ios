@@ -20,6 +20,8 @@
 		AA000040 /* GiftReminderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000041 /* GiftReminderPickerView.swift */; };
 		AA000042 /* CalendarBrowseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000043 /* CalendarBrowseView.swift */; };
 		AA000044 /* AppIconPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000045 /* AppIconPreview.swift */; };
+		AA000046 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000047 /* PersonDetailView.swift */; };
+		AA000048 /* NameOriginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000049 /* NameOriginService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		AA000041 /* GiftReminderPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftReminderPickerView.swift; sourceTree = "<group>"; };
 		AA000043 /* CalendarBrowseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBrowseView.swift; sourceTree = "<group>"; };
 		AA000045 /* AppIconPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconPreview.swift; sourceTree = "<group>"; };
+		AA000047 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
+		AA000049 /* NameOriginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameOriginService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 				AA000012 /* NameDayService.swift */,
 				AA000013 /* NotificationService.swift */,
 				AA000018 /* CalendarService.swift */,
+				AA000049 /* NameOriginService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -97,7 +102,8 @@
 				AA000015 /* AddPersonView.swift */,
 				AA000016 /* PersonRowView.swift */,
 				AA000041 /* GiftReminderPickerView.swift */,
-			AA000043 /* CalendarBrowseView.swift */,
+				AA000043 /* CalendarBrowseView.swift */,
+				AA000047 /* PersonDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,7 +189,9 @@
 				AA000026 /* PersonRowView.swift in Sources */,
 				AA000040 /* GiftReminderPickerView.swift in Sources */,
 				AA000042 /* CalendarBrowseView.swift in Sources */,
-			AA000044 /* AppIconPreview.swift in Sources */,
+				AA000044 /* AppIconPreview.swift in Sources */,
+				AA000046 /* PersonDetailView.swift in Sources */,
+				AA000048 /* NameOriginService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

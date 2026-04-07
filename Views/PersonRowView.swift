@@ -16,7 +16,7 @@ struct EventRowView: View {
 
             // Info
             VStack(alignment: .leading, spacing: 4) {
-                Text(event.person.name)
+                Text(event.person.displayName)
                     .font(.headline)
 
                 HStack(spacing: 5) {

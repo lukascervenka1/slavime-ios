@@ -47,22 +47,25 @@ struct AppIconLight: View {
 struct AppIconDark: View {
     var body: some View {
         ZStack {
-            Color.black
+            // Tmavý charcoal – ne pure black (jako ostatní prémiové ikonky)
+            Color(red: 0.09, green: 0.09, blue: 0.11)
 
+            // Jemný středový glow
             Circle()
                 .fill(RadialGradient(
-                    colors: [Color.white.opacity(0.06), Color.clear],
-                    center: .center, startRadius: 0, endRadius: 380
+                    colors: [Color.white.opacity(0.08), Color.clear],
+                    center: .center, startRadius: 0, endRadius: 420
                 ))
-                .frame(width: 760, height: 760)
+                .frame(width: 840, height: 840)
 
             iconSparkles(bright: true)
             iconDots(bright: true)
 
+            // Silnější outline – .semibold místo .thin
             Image(systemName: "party.popper")
-                .font(.system(size: 400, weight: .thin))
-                .foregroundStyle(Color.white.opacity(0.92))
-                .shadow(color: Color.white.opacity(0.3), radius: 20, x: 0, y: 0)
+                .font(.system(size: 400, weight: .semibold))
+                .foregroundStyle(Color.white.opacity(0.95))
+                .shadow(color: Color.white.opacity(0.25), radius: 24, x: 0, y: 0)
         }
         .frame(width: 1024, height: 1024)
         .clipShape(RoundedRectangle(cornerRadius: 220))

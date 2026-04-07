@@ -22,7 +22,7 @@ struct GiftReminderPickerView: View {
                             Text(person.emoji).font(.system(size: 22))
                         }
                         VStack(alignment: .leading, spacing: 3) {
-                            Text(person.name).font(.headline)
+                            Text(person.displayName).font(.headline)
                             Text(eventKind == "nameday" ? "Svátek" : "Narozeniny")
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)

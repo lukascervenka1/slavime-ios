@@ -10,6 +10,7 @@ struct CalendarBrowseView: View {
         return cal.date(from: cal.dateComponents([.year, .month], from: Date())) ?? Date()
     }()
     @State private var selectedDate: Date? = Date()
+    @State private var detailPerson: Person? = nil
 
     private let cal: Calendar = {
         var c = Calendar.current
@@ -71,14 +72,17 @@ struct CalendarBrowseView: View {
                             let evs = eventsFor(date: date)
                             let isSel = selectedDate.map { cal.isDate($0, inSameDayAs: date) } ?? false
                             let year  = cal.component(.year, from: displayedMonth)
-                            let isHoliday = NameDayService.shared.publicHoliday(forMonth: month, day: day, year: year) != nil
+                            let holidayName = NameDayService.shared.publicHoliday(forMonth: month, day: day, year: year)
+                            let isHoliday = holidayName != nil
+                            // Zobraz všechna jména (nebo název státního svátku jako zálohu)
+                            let displayName = calNames.isEmpty ? holidayName : calNames.joined(separator: ", ")
 
                             DayCell(
                                 date: date,
                                 isSelected: isSel,
                                 isToday: cal.isDateInToday(date),
                                 isPublicHoliday: isHoliday,
-                                nameDayName: calNames.first,
+                                nameDayName: displayName,
                                 events: evs
                             )
                             .onTapGesture { selectedDate = date }
@@ -99,7 +103,8 @@ struct CalendarBrowseView: View {
                         date: date,
                         calNames: allNamesFor(date: date),
                         holiday: holidayFor(date: date),
-                        events: eventsFor(date: date)
+                        events: eventsFor(date: date),
+                        onTapPerson: { detailPerson = $0 }
                     )
                 } else {
                     Spacer()
@@ -121,6 +126,7 @@ struct CalendarBrowseView: View {
                     .font(.subheadline)
                 }
             }
+            .sheet(item: $detailPerson) { PersonDetailView(person: $0) }
         }
     }
 
@@ -261,6 +267,14 @@ struct DayDetailPanel: View {
     let calNames: [String]
     let holiday: String?
     let events: [(person: Person, kind: EventKind)]
+    var onTapPerson: ((Person) -> Void)? = nil
+
+    private var intlDays: [(name: String, emoji: String)] {
+        let cal = Calendar.current
+        let m = cal.component(.month, from: date)
+        let d = cal.component(.day,   from: date)
+        return NameDayService.shared.internationalDays(forMonth: m, day: d)
+    }
 
     private let cal: Calendar = {
         var c = Calendar.current
@@ -290,6 +304,13 @@ struct DayDetailPanel: View {
                         } else if holiday == nil {
                             Text("Žádný svátek dle kalendáře").font(.subheadline).foregroundStyle(.secondary)
                         }
+                        // Mezinárodní dny
+                        ForEach(intlDays, id: \.name) { intl in
+                            HStack(spacing: 4) {
+                                Text(intl.emoji).font(.caption)
+                                Text(intl.name).font(.subheadline).foregroundStyle(.secondary)
+                            }
+                        }
                     }
                     Spacer()
                 }
@@ -311,21 +332,26 @@ struct DayDetailPanel: View {
                     VStack(spacing: 8) {
                         ForEach(0..<events.count, id: \.self) { i in
                             let ev = events[i]
-                            HStack(spacing: 12) {
-                                PersonAvatarView(person: ev.person, size: 44)
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text(ev.person.name).font(.headline)
-                                    Label(ev.kind.label, systemImage: ev.kind.icon)
-                                        .font(.subheadline)
-                                        .foregroundStyle(ev.kind.color)
+                            Button {
+                                onTapPerson?(ev.person)
+                            } label: {
+                                HStack(spacing: 12) {
+                                    PersonAvatarView(person: ev.person, size: 44)
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(ev.person.displayName).font(.headline).foregroundStyle(.primary)
+                                        Label(ev.kind.label, systemImage: ev.kind.icon)
+                                            .font(.subheadline)
+                                            .foregroundStyle(ev.kind.color)
+                                    }
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                        .foregroundStyle(.tertiary)
+                                        .font(.caption)
                                 }
-                                Spacer()
-                                Image(systemName: ev.kind.icon)
-                                    .foregroundStyle(ev.kind.color)
-                                    .font(.title3)
+                                .padding(12)
+                                .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
                             }
-                            .padding(12)
-                            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 12))
+                            .buttonStyle(.plain)
                             .padding(.horizontal)
                         }
                     }
@@ -333,7 +359,7 @@ struct DayDetailPanel: View {
                 }
             }
         }
-        .frame(maxHeight: 200)
+        .frame(maxHeight: 260)
     }
 
     private var dateStr: String {

@@ -7,25 +7,43 @@ struct ContentView: View {
 
     @State private var showingAdd = false
     @State private var editingPerson: Person? = nil
+    @State private var detailPerson: Person? = nil
     @State private var searchText = ""
+    @State private var selectedCategory: String? = nil
     @State private var giftReminderPerson: Person? = nil
     @State private var giftReminderEventKind = ""
 
     var body: some View {
+        // Vypočítáme jednou – zamezíme vícenásobnému výpočtu per render
+        let allEvents = upcomingEvents
+        let categoryEvents = selectedCategory == nil
+            ? allEvents
+            : allEvents.filter { $0.person.category == selectedCategory }
+        let filteredEvents = searchText.isEmpty
+            ? categoryEvents
+            : categoryEvents.filter { $0.person.displayName.localizedCaseInsensitiveContains(searchText) }
+        let unknownPeople = people
+            .filter { $0.nameDayComponents == nil && $0.birthdayComponents == nil }
+            .filter { selectedCategory == nil || $0.category == selectedCategory }
+
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: 20, pinnedViews: []) {
                     // Dnešní karta – vždy viditelná
                     TodayCard(
-                        allEvents: upcomingEvents,
-                        onTapPerson: { editingPerson = $0 }
+                        allEvents: allEvents,
+                        onTapPerson: { detailPerson = $0 }
                     )
                     .padding(.horizontal)
 
+                    // Filtr kategorií
+                    CategoryFilterBar(selected: $selectedCategory)
+                        .padding(.horizontal)
+
                     // Nadcházející – horizontální scroll (všechna budoucí, max 15)
-                    let upcoming = upcomingEvents.filter { $0.daysUntil > 0 }
+                    let upcoming = categoryEvents.filter { $0.daysUntil > 0 }
                     if !upcoming.isEmpty && searchText.isEmpty {
-                        UpcomingStrip(events: upcoming, onTap: { editingPerson = $0.person })
+                        UpcomingStrip(events: upcoming, onTap: { detailPerson = $0.person })
                     }
 
                     // Všechny události (karty)
@@ -34,8 +52,11 @@ struct ContentView: View {
                             SectionHeader(title: searchText.isEmpty ? "Všichni" : "Výsledky", icon: "person.2")
                             ForEach(filteredEvents) { event in
                                 EventCard(event: event)
-                                    .onTapGesture { editingPerson = event.person }
+                                    .onTapGesture { detailPerson = event.person }
                                     .contextMenu {
+                                        Button { detailPerson = event.person } label: {
+                                            Label("Detail", systemImage: "info.circle")
+                                        }
                                         Button { editingPerson = event.person } label: {
                                             Label("Upravit", systemImage: "pencil")
                                         }
@@ -54,8 +75,11 @@ struct ContentView: View {
                             SectionHeader(title: "Bez data", icon: "questionmark.circle")
                             ForEach(unknownPeople) { person in
                                 UnknownPersonCard(person: person)
-                                    .onTapGesture { editingPerson = person }
+                                    .onTapGesture { detailPerson = person }
                                     .contextMenu {
+                                        Button { detailPerson = person } label: {
+                                            Label("Detail", systemImage: "info.circle")
+                                        }
                                         Button { editingPerson = person } label: {
                                             Label("Upravit", systemImage: "pencil")
                                         }
@@ -90,18 +114,14 @@ struct ContentView: View {
                     Button {
                         showingAdd = true
                     } label: {
-                        ZStack {
-                            Circle()
-                                .fill(Color.accentColor.opacity(0.12))
-                                .frame(width: 34, height: 34)
-                            Image(systemName: "plus")
-                                .font(.system(size: 15, weight: .semibold))
-                        }
+                        Image(systemName: "plus")
+                            .font(.system(size: 17, weight: .semibold))
                     }
                 }
             }
             .sheet(isPresented: $showingAdd) { AddPersonView() }
             .sheet(item: $editingPerson) { AddPersonView(editingPerson: $0) }
+            .sheet(item: $detailPerson) { PersonDetailView(person: $0) }
             .sheet(item: $giftReminderPerson) { person in
                 GiftReminderPickerView(person: person, eventKind: giftReminderEventKind)
             }
@@ -128,15 +148,6 @@ struct ContentView: View {
             }
         }
         return events.sorted { $0.daysUntil < $1.daysUntil }
-    }
-
-    private var filteredEvents: [UpcomingEvent] {
-        guard !searchText.isEmpty else { return upcomingEvents }
-        return upcomingEvents.filter { $0.person.name.localizedCaseInsensitiveContains(searchText) }
-    }
-
-    private var unknownPeople: [Person] {
-        people.filter { $0.nameDayComponents == nil && $0.birthdayComponents == nil }
     }
 
     // MARK: – Actions
@@ -188,7 +199,7 @@ struct TodayCard: View {
                         .font(.title2.bold())
                     // Znamení zvěrokruhu
                     HStack(spacing: 3) {
-                        Image(systemName: "sparkles")
+                        Image(systemName: "moon.stars.fill")
                             .font(.caption2)
                             .foregroundStyle(.secondary)
                         Text(zodiac.name)
@@ -258,7 +269,7 @@ struct TodayCard: View {
                             HStack(spacing: 12) {
                                 PersonAvatarView(person: event.person, size: 44)
                                 VStack(alignment: .leading, spacing: 2) {
-                                    Text(event.person.name).font(.headline).foregroundStyle(.primary)
+                                    Text(event.person.displayName).font(.headline).foregroundStyle(.primary)
                                     Label(event.kindLabel, systemImage: event.kindIcon)
                                         .font(.subheadline)
                                         .foregroundStyle(event.kindColor)
@@ -290,7 +301,6 @@ struct TodayCard: View {
             if !tomorrowCalendarNames.isEmpty {
                 Divider().padding(.horizontal, 14).padding(.top, 14)
                 HStack(spacing: 6) {
-                    Image(systemName: "moon.stars.fill").foregroundStyle(Color.purple.opacity(0.8)).font(.caption)
                     Text("Zítra slaví svátek: ")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
@@ -335,7 +345,7 @@ struct UpcomingStrip: View {
                         Button { onTap(event) } label: {
                             VStack(spacing: 10) {
                                 PersonAvatarView(person: event.person, size: 54)
-                                Text(event.person.name)
+                                Text(event.person.displayName)
                                     .font(.caption.bold())
                                     .lineLimit(1)
                                     .frame(maxWidth: 80)
@@ -375,7 +385,7 @@ struct EventCard: View {
             PersonAvatarView(person: event.person, size: 52)
 
             VStack(alignment: .leading, spacing: 4) {
-                Text(event.person.name).font(.headline)
+                Text(event.person.displayName).font(.headline)
                 HStack(spacing: 5) {
                     Image(systemName: event.kindIcon).font(.caption.weight(.semibold))
                     Text(event.kindLabel).font(.subheadline)
@@ -423,7 +433,7 @@ struct UnknownPersonCard: View {
         HStack(spacing: 14) {
             PersonAvatarView(person: person, size: 52)
             VStack(alignment: .leading, spacing: 3) {
-                Text(person.name).font(.headline)
+                Text(person.displayName).font(.headline)
                 Label("Žádné datum", systemImage: "questionmark.circle")
                     .font(.subheadline).foregroundStyle(.secondary)
             }
@@ -457,6 +467,45 @@ struct EmptyAddCard: View {
             .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
         }
         .buttonStyle(.plain)
+    }
+}
+
+// MARK: – Category filter bar
+
+struct CategoryFilterBar: View {
+    @Binding var selected: String?
+
+    private let chips: [(label: String, value: String?, icon: String)] = [
+        ("Vše",      nil,        "person.2"),
+        ("Rodina",   "Rodina",   "house.fill"),
+        ("Práce",    "Práce",    "briefcase.fill"),
+        ("Přátelé",  "Přátelé",  "person.2.fill"),
+        ("Ostatní",  "Ostatní",  "star.fill"),
+    ]
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(chips, id: \.label) { chip in
+                    let isActive = selected == chip.value
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            selected = chip.value
+                        }
+                    } label: {
+                        Label(chip.label, systemImage: chip.icon)
+                            .font(.subheadline.weight(isActive ? .semibold : .regular))
+                            .foregroundStyle(isActive ? .white : .primary)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 7)
+                            .background(
+                                Capsule().fill(isActive ? Color.accentColor : Color(.secondarySystemGroupedBackground))
+                            )
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
     }
 }
 

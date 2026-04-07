@@ -10,6 +10,8 @@ struct AddPersonView: View {
 
     // Identity
     @State private var name = ""
+    @State private var lastName = ""
+    @State private var selectedCategory = "Ostatní"
     @State private var emoji = "🎂"
     @State private var selectedColorHex = Person.availableColors[6]
 
@@ -36,6 +38,7 @@ struct AddPersonView: View {
     @State private var giftDaysNameDay = 7
     @State private var giftForBirthday = false
     @State private var giftDaysBirthday = 7
+    @State private var giftNote = ""
 
     // Oslava
     @State private var hasParty = false
@@ -98,6 +101,10 @@ struct AddPersonView: View {
                             .onChange(of: name) { _, v in
                                 suggestions = NameDayService.shared.suggestions(for: v)
                             }
+                        TextField("Příjmení (volitelné)", text: $lastName)
+                            .font(.subheadline)
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.secondary)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 8)
@@ -143,6 +150,20 @@ struct AddPersonView: View {
                         }
                     }
                     .padding(.vertical, 4)
+                }
+
+                // MARK: – Kategorie
+                Section {
+                    Picker("Kategorie", selection: $selectedCategory) {
+                        ForEach(Person.categories, id: \.self) { cat in
+                            Text(cat).tag(cat)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets(top: 6, leading: 0, bottom: 6, trailing: 0))
+                } header: {
+                    Label("Kategorie", systemImage: "tag.fill").textCase(nil)
                 }
 
                 // MARK: – Svátek
@@ -214,6 +235,10 @@ struct AddPersonView: View {
                         Text("Nejprve zadej svátek nebo narozeniny.")
                             .foregroundStyle(.secondary).font(.subheadline)
                     }
+                    // Poznámka – tip na dárek
+                    TextField("Tip na dárek (volitelné)…", text: $giftNote, axis: .vertical)
+                        .lineLimit(2...4)
+                        .font(.subheadline)
                 } header: {
                     Label("Dárek", systemImage: "gift.fill").textCase(nil)
                 } footer: {
@@ -332,7 +357,8 @@ struct AddPersonView: View {
 
     private func loadEditing() {
         guard let p = editingPerson else { return }
-        name = p.name; emoji = p.emoji; selectedColorHex = p.colorHex
+        name = p.name; lastName = p.lastName; selectedCategory = p.category
+        emoji = p.emoji; selectedColorHex = p.colorHex
         photoData = p.photoData
         notifyDayBefore = p.notifyDayBefore; notifyOnDay = p.notifyOnDay
         notifyTime = Calendar.current.date(bySettingHour: p.notifyHour, minute: p.notifyMinute, second: 0, of: Date()) ?? Date()
@@ -348,6 +374,7 @@ struct AddPersonView: View {
         }
         giftForNameDay = p.giftReminderNameDay; giftDaysNameDay = p.giftDaysBeforeNameDay
         giftForBirthday = p.giftReminderBirthday; giftDaysBirthday = p.giftDaysBeforeBirthday
+        giftNote = p.giftNote
         if let pd = p.partyDate { hasParty = true; partyDate = pd }
         partyRepeatsYearly = p.partyRepeatsYearly
     }
@@ -366,7 +393,9 @@ struct AddPersonView: View {
             if let id = existing.calendarNameDayId  { CalendarService.shared.removeEvent(id: id) }
             if let id = existing.calendarBirthdayId { CalendarService.shared.removeEvent(id: id) }
             if let id = existing.calendarPartyId    { CalendarService.shared.removeEvent(id: id) }
-            existing.name = trimmed; existing.emoji = emoji; existing.colorHex = selectedColorHex
+            existing.name = trimmed; existing.lastName = lastName.trimmingCharacters(in: .whitespaces)
+            existing.category = selectedCategory
+            existing.emoji = emoji; existing.colorHex = selectedColorHex
             existing.photoData = photoData
             existing.customMonth = useCustomNameDay ? nameDayMonth : nil
             existing.customDay   = useCustomNameDay ? nameDayDay   : nil
@@ -375,12 +404,16 @@ struct AddPersonView: View {
             existing.notifyHour = hour; existing.notifyMinute = minute
             existing.giftReminderNameDay = giftForNameDay; existing.giftDaysBeforeNameDay = giftDaysNameDay
             existing.giftReminderBirthday = giftForBirthday; existing.giftDaysBeforeBirthday = giftDaysBirthday
+            existing.giftNote = giftNote
             existing.partyDate = hasParty ? partyDate : nil
             existing.partyRepeatsYearly = partyRepeatsYearly
             person = existing
         } else {
             person = Person(
-                name: trimmed, emoji: emoji, colorHex: selectedColorHex,
+                name: trimmed,
+                lastName: lastName.trimmingCharacters(in: .whitespaces),
+                category: selectedCategory,
+                emoji: emoji, colorHex: selectedColorHex,
                 customMonth: useCustomNameDay ? nameDayMonth : nil,
                 customDay:   useCustomNameDay ? nameDayDay   : nil,
                 birthMonth: bMonth, birthDay: bDay, birthYear: bYear,
@@ -388,6 +421,7 @@ struct AddPersonView: View {
                 notifyHour: hour, notifyMinute: minute,
                 giftReminderNameDay: giftForNameDay, giftDaysBeforeNameDay: giftDaysNameDay,
                 giftReminderBirthday: giftForBirthday, giftDaysBeforeBirthday: giftDaysBirthday,
+                giftNote: giftNote,
                 partyDate: hasParty ? partyDate : nil
             )
             person.photoData = photoData
@@ -402,15 +436,15 @@ struct AddPersonView: View {
             if addToCalendar, await CalendarService.shared.requestPermission() {
                 if let (m, d) = person.nameDayComponents {
                     person.calendarNameDayId = CalendarService.shared.addYearlyEvent(
-                        title: "🎉 Svátek – \(person.name)", month: m, day: d)
+                        title: "🎉 Svátek – \(person.displayName)", month: m, day: d)
                 }
                 if let (m, d) = person.birthdayComponents {
                     person.calendarBirthdayId = CalendarService.shared.addYearlyEvent(
-                        title: "🎂 Narozeniny – \(person.name)", month: m, day: d)
+                        title: "🎂 Narozeniny – \(person.displayName)", month: m, day: d)
                 }
                 if let pd = person.partyDate {
                     person.calendarPartyId = CalendarService.shared.addSingleEvent(
-                        title: "🎉 Oslava – \(person.name)",
+                        title: "🎉 Oslava – \(person.displayName)",
                         startDate: pd,
                         notes: "Oslava přidána přes aplikaci Slavíme.")
                 }

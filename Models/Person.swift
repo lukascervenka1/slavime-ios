@@ -5,6 +5,8 @@ import SwiftData
 class Person {
     var id: UUID
     var name: String
+    var lastName: String
+    var category: String        // "Rodina" | "Práce" | "Přátelé" | "Ostatní"
     var emoji: String
     var colorHex: String
     var photoData: Data?
@@ -29,6 +31,7 @@ class Person {
     var giftDaysBeforeNameDay: Int       // kolik dní před svátkem
     var giftReminderBirthday: Bool
     var giftDaysBeforeBirthday: Int      // kolik dní před narozeninami
+    var giftNote: String                 // tip na dárek (volitelná poznámka)
 
     // Oslava (konkrétní datum + čas)
     var partyDate: Date?
@@ -39,8 +42,14 @@ class Person {
     var calendarBirthdayId: String?
     var calendarPartyId: String?
 
+    var displayName: String { lastName.isEmpty ? name : "\(name) \(lastName)" }
+
+    static let categories = ["Rodina", "Práce", "Přátelé", "Ostatní"]
+
     init(
         name: String,
+        lastName: String = "",
+        category: String = "Ostatní",
         emoji: String = "🎂",
         colorHex: String,
         customMonth: Int? = nil,
@@ -56,11 +65,14 @@ class Person {
         giftDaysBeforeNameDay: Int = 7,
         giftReminderBirthday: Bool = false,
         giftDaysBeforeBirthday: Int = 7,
+        giftNote: String = "",
         partyDate: Date? = nil,
         partyRepeatsYearly: Bool = false
     ) {
         self.id = UUID()
         self.name = name
+        self.lastName = lastName
+        self.category = category
         self.emoji = emoji
         self.colorHex = colorHex
         self.customMonth = customMonth
@@ -76,6 +88,7 @@ class Person {
         self.giftDaysBeforeNameDay = giftDaysBeforeNameDay
         self.giftReminderBirthday = giftReminderBirthday
         self.giftDaysBeforeBirthday = giftDaysBeforeBirthday
+        self.giftNote = giftNote
         self.partyDate = partyDate
         self.partyRepeatsYearly = partyRepeatsYearly
     }
