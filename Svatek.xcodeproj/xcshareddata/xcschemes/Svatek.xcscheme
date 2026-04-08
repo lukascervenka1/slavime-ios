@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AA000002"
-               BuildableName = "Svatek.app"
+               BuildableName = "Slavi&#x301;me.app"
                BlueprintName = "Svatek"
                ReferencedContainer = "container:Svatek.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA000002"
-            BuildableName = "Svatek.app"
+            BuildableName = "Slavi&#x301;me.app"
             BlueprintName = "Svatek"
             ReferencedContainer = "container:Svatek.xcodeproj">
          </BuildableReference>
@@ -63,7 +63,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AA000002"
-            BuildableName = "Svatek.app"
+            BuildableName = "Slavi&#x301;me.app"
             BlueprintName = "Svatek"
             ReferencedContainer = "container:Svatek.xcodeproj">
          </BuildableReference>
