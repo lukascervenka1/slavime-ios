@@ -21,6 +21,10 @@ struct PersonDetailView: View {
 
                     datesCard
 
+                    if !person.anniversaries.isEmpty {
+                        anniversariesCard
+                    }
+
                     if !person.giftNote.isEmpty {
                         giftNoteCard
                     }
@@ -221,6 +225,81 @@ struct PersonDetailView: View {
                 }
             }
         }
+    }
+
+    // MARK: – Výročí
+
+    private var anniversariesCard: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Label("Výročí", systemImage: "heart.text.square.fill")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+
+            ForEach(person.anniversaries.sorted { $0.month < $1.month || ($0.month == $1.month && $0.day < $1.day) }) { ann in
+                let days = daysUntil(month: ann.month, day: ann.day)
+
+                if ann.id != person.anniversaries.first?.id {
+                    Divider()
+                }
+
+                HStack(spacing: 12) {
+                    Text(ann.icon)
+                        .font(.title3)
+                        .frame(width: 24)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(ann.title)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Text(anniversaryDateString(ann))
+                            .font(.subheadline.weight(.semibold))
+                        if let year = ann.year {
+                            let nextDate = NameDayService.shared.nextOccurrence(month: ann.month, day: ann.day)
+                            let eventYear = Calendar.current.component(.year, from: nextDate)
+                            let count = eventYear - year
+                            Text("\(count). výročí")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    Spacer()
+                    if days == 0 {
+                        Text("Dnes!")
+                            .font(.subheadline.bold())
+                            .foregroundStyle(Color.pink)
+                            .padding(.horizontal, 10).padding(.vertical, 5)
+                            .background(Color.pink.opacity(0.12), in: Capsule())
+                    } else if days == 1 {
+                        Text("Zítra")
+                            .font(.subheadline.bold())
+                            .foregroundStyle(.orange)
+                            .padding(.horizontal, 10).padding(.vertical, 5)
+                            .background(Color.orange.opacity(0.1), in: Capsule())
+                    } else {
+                        VStack(alignment: .trailing, spacing: 0) {
+                            Text("za \(days)")
+                                .font(.headline.bold())
+                                .foregroundStyle(Color.pink)
+                            Text("dní")
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+            }
+        }
+        .padding()
+        .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16))
+    }
+
+    private func anniversaryDateString(_ ann: Anniversary) -> String {
+        var comps = DateComponents()
+        comps.month = ann.month; comps.day = ann.day; comps.year = 2024
+        guard let date = Calendar.current.date(from: comps) else { return "" }
+        let f = DateFormatter(); f.locale = Locale(identifier: "cs_CZ"); f.dateFormat = "d. MMMM"
+        var parts = [f.string(from: date)]
+        if let y = ann.year { parts.append(String(y)) }
+        return parts.joined(separator: " ")
     }
 
     // MARK: – Tip na dárek

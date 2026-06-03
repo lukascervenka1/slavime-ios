@@ -1100,5 +1100,118 @@ final class NameOriginService {
             meaning: "Ranní záře, úsvit (zora = jitřní červánky)",
             funFact: "Zora je slovanský ekvivalent latinské Aurory - bohyně jitřní záře. Ve slovanské mytologii přinášela Zora světlo do světa každé ráno, stejně jako Aurora otvírala bránu slunci."
         ),
+
+        // MARK: - Další doplněná jména
+
+        "zacharias": .init(
+            language: "Hebrejský",
+            meaning: "Bůh si vzpomněl, Bůh pamatuje (Zekharyah)",
+            funFact: "Zachariáš je biblický prorok i otec Jana Křtitele. Jméno proslavil i Zachariáš - postava ze Starého zákona, které přišel anděl Gabriel oznámit narození syna v jeho stáří. V Čechách je toto jméno vzácné, ale v anglofonním světě se Zachary/Zach těší velké oblibě."
+        ),
+        "zak": .init(
+            language: "Hebrejský",
+            meaning: "Zkrácenina jména Zachariáš - Bůh si vzpomněl",
+            funFact: "Zak je moderní anglická zkrácenina hebrejského Zachariáš. Zachariáš byl starozákonní prorok, jehož kniha předpovídá příchod Mesiáše na oslu - naplněno Ježíšovým vjezdem do Jeruzaléma na Květnou neděli."
+        ),
+        "hynek": .init(
+            language: "Germánský",
+            meaning: "Vládce domova (česká forma jména Jindřich/Heinrich)",
+            funFact: "Hynek je ryze česká podoba německého jména Heinrich. Neslavněji ho proslavil Hynek Otta z Boků - literární postava básně Máj od Karla Hynka Máchy. Sám básník Mácha byl Karlem, ale přidáním druhého jména Hynek vzdával hold starobylé češtině."
+        ),
+        "tamara": .init(
+            language: "Hebrejský",
+            meaning: "Palmový strom (tamar = palma, symbol krásy a plodnosti)",
+            funFact: "Tamara je oblíbené jméno v gruzínském a ruském prostředí. Gruzínská královna Tamara Veliká (12.-13. stol.) vládla v době zlatého věku Gruzie - za její vlády vznikly eposy jako Vítěz v plášti tygří kůže."
+        ),
+        "radomir": .init(
+            language: "Slovanský",
+            meaning: "Šťastný mír, radostný a mírumilovný (rad + mír)",
+            funFact: "Radomír byl přemyslovský kníže - syn Boleslava II. Byl zabit pouhých osm měsíců po nastoupení na trůn. Jméno spojuje radost (rad-) a mír - dva nejvyšší ideály slovanské kultury."
+        ),
+        "otakar": .init(
+            language: "Germánský (ostrogótský)",
+            meaning: "Střežící majetek, hlídač bohatství (aud = majetek + hari = strážce)",
+            funFact: "Přemysl Otakar II. byl nazýván Železný a zlatý král - ovládal území od Baltu po Jaderské moře. Zahynul v bitvě na Moravském poli (1278) v boji s Rudolfem Habsburským - porážka změnila dějiny střední Evropy."
+        ),
+        "augustyn": .init(
+            language: "Latinský",
+            meaning: "Vznešený, posvátný (augustus = velebný, posvátný)",
+            funFact: "Sv. Augustýn z Hippo je jedním z největších filosofů křesťanství - jeho Vyznání jsou první autobiografií v dějinách literatury. Říká se, že bez Augustýna by nebyl ani Descartes, ani moderní filosofie."
+        ),
+        "bronislav": .init(
+            language: "Slovanský",
+            meaning: "Slavný zbroj, zbraní slavný (bronja = zbroj + slava)",
+            funFact: "Slovanské jméno kombinující bron (zbroj, pancíř) a slávu - typická válečnická symbolika. Zbroj jako ochrana při boji byla v raném středověku nejvzácnějším a nejcennějším majetkem válečníka."
+        ),
+        "boris": .init(
+            language: "Turkický / Slovanský",
+            meaning: "Vlk nebo bojovník (z turkického böri = vlk); v slovanském výkladu: bojovník",
+            funFact: "Sv. Boris je patronem Ruska - spolu s bratrem Glebem byli první kanonizovaní slovanští světci (1072). Boris Jelcin se stal prvním prezidentem Ruské federace. Jméno je oblíbené od Bulharska po Japonsko."
+        ),
+        "dalimil": .init(
+            language: "Slovanský",
+            meaning: "Darující z dálky, laskavý z dálky (dali + mil)",
+            funFact: "Dalimil je autorem nejstarší české kroniky psané česky - Dalimilovy kroniky (kolem 1314). Byl prvním českým autorem, který psal v národním jazyce a prosazoval češtinu nad latinu. Jeho identita dodnes zůstává záhadou."
+        ),
+        "radomila": .init(
+            language: "Slovanský",
+            meaning: "Milostivá radostí, milá a radostná (rad + milá)",
+            funFact: "Typicky slovanské dvousložkové jméno. Kořen rad- vyjadřující radost najdeme v desítkách slovanských jmen: Radek, Radoslav, Radmila, Radovan - starobylá vrstva slovanské jmenné tradice."
+        ),
+        "vlastimil": .init(
+            language: "Slovanský",
+            meaning: "Milující vlast, vlasti milý (vlast + milý)",
+            funFact: "Jméno vyjadřuje lásku k rodné zemi - vlast = rodná země (od vlad = vládnout). Slovanský kořen vlast je příbuzný s vladatem (vládnout) a dal základ jménům Vladimír, Vladislav i Vlasta."
+        ),
+        "valdemar": .init(
+            language: "Severský (germánský)",
+            meaning: "Slavný vládce (Waldemar: wald = vládce + mari = slavný)",
+            funFact: "Jméno nosili čtyři dánští králové. Valdemar II. Vítězný dobyl Estonsko a podle legendy mu z nebe spadl červenobílý prapor Dannebrog - nejstarší stále používaná státní vlajka světa."
+        ),
+        "maxmilian": .init(
+            language: "Latinský",
+            meaning: "Největší (maximus) - jméno vymyslel císař Friedrich III. spojením Maximus a Aemilianus",
+            funFact: "Jméno vymyslel habsburský císař Friedrich III. pro svého syna - spojil dvě slavná římská jména. Habsburk Maxmilián I. byl zvaný Poslední rytíř. Mexický císař Maxmilián I. byl zastřelen v roce 1867."
+        ),
+        "kvido": .init(
+            language: "Germánský (italský)",
+            meaning: "Dřevo, les (wido = les, dřevo)",
+            funFact: "Kvido je česká forma italského Guido. Guido z Arezza (11. stol.) vynalezl notový systém, který používáme dodnes - pojmenoval noty do, re, mi, fa, sol, la, si podle počátečních slabik latinského hymnu k sv. Janu Křtiteli."
+        ),
+        "svatopluk": .init(
+            language: "Slovanský",
+            meaning: "Slavné vojsko nebo posvátný lid (svat + pluk = posvátný + vojsko)",
+            funFact: "Svatopluk I. byl nejmocnějším vládcem Velké Moravy - za jeho vlády dosáhla říše největšího rozsahu. Přijal Cyrila a Metoděje a zažil zlatý věk slovanské kultury. Pověst o prutech vypráví o jednotě jako síle."
+        ),
+        "rostislav": .init(
+            language: "Slovanský",
+            meaning: "Rozrůstající se sláva (rosti = růst + slava)",
+            funFact: "Kníže Rastislav Moravský pozval v roce 863 Cyrila a Metoděje, aby přinesli křesťanství ve slovanském jazyce - tím dal podnět ke vzniku první slovanské abecedy a literatury. Rostislav je česká forma tohoto starobylého jména."
+        ),
+        "ota": .init(
+            language: "Germánský",
+            meaning: "Majetek, bohatství (aud/od = majetný)",
+            funFact: "Ota I. Veliký byl prvním císařem Svaté říše římské (962) - obnovil říši Karla Velikého. Oto II. si vzal byzantskou princeznu Theofanu a spojil východní a západní kulturu středověkého světa."
+        ),
+        "otto": .init(
+            language: "Germánský",
+            meaning: "Majetek, bohatství (aud/od = majetný)",
+            funFact: "Otto I. Veliký byl prvním císařem Svaté říše římské (962). Otto von Bismarck sjednotil Německo v roce 1871. Otto Wichterle vynalezl v Praze měkké kontaktní čočky - dnes je nosí přes 100 milionů lidí."
+        ),
+        "hugo": .init(
+            language: "Germánský",
+            meaning: "Mysl, duch, rozum (hug = mysl, duch)",
+            funFact: "Victor Hugo napsal Bídníky a Chrám Matky Boží v Paříži - dvě nejpřekládanější francouzská díla. Jeho pohřeb (1885) přilákal přes 2 miliony lidí - největší shromáždění v dějinách Paříže té doby."
+        ),
+        "lubos": .init(
+            language: "Slovanský",
+            meaning: "Milovaný, milý (lub = milovat)",
+            funFact: "Luboš je domácká česká forma jmen Luboslav nebo Lubomír. Kořen lub- (milovat, mít rád) je příbuzný se staroslovanským ljubiti - odtud ruské ljubov (láska) i polské lubić (mít rád)."
+        ),
+        "adrian": .init(
+            language: "Latinský",
+            meaning: "Pocházející z Adrie (Hadrianus - od antického města Adria)",
+            funFact: "Jméno proslavil císař Hadrianus, který postavil Hadriánův val v Británii a Pantheon v Římě. Adriatické moře nese jméno starověkého etruského města Adria. Jediný anglický papež byl Hadrián IV. (12. stol.)."
+        ),
     ]
 }

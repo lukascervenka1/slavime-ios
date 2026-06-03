@@ -40,6 +40,10 @@ struct AddPersonView: View {
     @State private var giftDaysBirthday = 7
     @State private var giftNote = ""
 
+    // Výročí
+    @State private var anniversaries: [(title: String, icon: String, month: Int, day: Int, year: Int?)] = []
+    @State private var showAddAnniversary = false
+
     // Oslava
     @State private var hasParty = false
     @State private var partyDate = Calendar.current.date(bySettingHour: 17, minute: 0, second: 0, of: Date()) ?? Date()
@@ -217,6 +221,44 @@ struct AddPersonView: View {
                     if hasParty { Text("Datum oslavy se automaticky přidá do Kalendáře.") }
                 }
 
+                // MARK: – Výročí
+                Section {
+                    ForEach(anniversaries.indices, id: \.self) { i in
+                        HStack(spacing: 12) {
+                            Text(anniversaries[i].icon).font(.title3)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(anniversaries[i].title).font(.subheadline)
+                                Text(anniversaryDateString(month: anniversaries[i].month,
+                                                           day: anniversaries[i].day,
+                                                           year: anniversaries[i].year))
+                                    .font(.caption).foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Button(role: .destructive) {
+                                anniversaries.remove(at: i)
+                            } label: {
+                                Image(systemName: "trash")
+                                    .foregroundStyle(.red)
+                                    .font(.subheadline)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+
+                    Button {
+                        showAddAnniversary = true
+                    } label: {
+                        Label("Přidat výročí", systemImage: "plus.circle")
+                    }
+                } header: {
+                    Label("Výročí", systemImage: "heart.text.square.fill").textCase(nil)
+                }
+                .sheet(isPresented: $showAddAnniversary) {
+                    AnniversaryPickerView { title, icon, month, day, year in
+                        anniversaries.append((title: title, icon: icon, month: month, day: day, year: year))
+                    }
+                }
+
                 // MARK: – Dárek
                 Section {
                     if nameDayComponents != nil {
@@ -350,6 +392,17 @@ struct AddPersonView: View {
         return f.string(from: date)
     }
 
+    private func anniversaryDateString(month: Int, day: Int, year: Int?) -> String {
+        var parts: [String] = []
+        var c = DateComponents(); c.month = month; c.day = day; c.year = 2024
+        if let date = Calendar.current.date(from: c) {
+            let f = DateFormatter(); f.locale = Locale(identifier: "cs_CZ"); f.dateFormat = "d. MMMM"
+            parts.append(f.string(from: date))
+        }
+        if let y = year { parts.append(String(y)) }
+        return parts.joined(separator: " ")
+    }
+
     private func daysInMonth(_ month: Int) -> Int {
         var c = DateComponents(); c.year = 2024; c.month = month
         return Calendar.current.range(of: .day, in: .month, for: Calendar.current.date(from: c)!)?.count ?? 31
@@ -377,6 +430,7 @@ struct AddPersonView: View {
         giftNote = p.giftNote
         if let pd = p.partyDate { hasParty = true; partyDate = pd }
         partyRepeatsYearly = p.partyRepeatsYearly
+        anniversaries = p.anniversaries.map { (title: $0.title, icon: $0.icon, month: $0.month, day: $0.day, year: $0.year) }
     }
 
     private func save() {
@@ -427,6 +481,16 @@ struct AddPersonView: View {
             person.photoData = photoData
             modelContext.insert(person)
         }
+
+        // Synchronizuj výročí
+        let existing = person.anniversaries
+        for ann in existing { modelContext.delete(ann) }
+        for a in anniversaries {
+            let ann = Anniversary(title: a.title, icon: a.icon, month: a.month, day: a.day, year: a.year)
+            ann.person = person
+            modelContext.insert(ann)
+        }
+
         try? modelContext.save()
 
         Task {
@@ -451,6 +515,90 @@ struct AddPersonView: View {
             }
         }
         dismiss()
+    }
+}
+
+// MARK: – Anniversary picker
+
+struct AnniversaryPickerView: View {
+    var onSave: (String, String, Int, Int, Int?) -> Void
+    @Environment(\.dismiss) private var dismiss
+
+    @State private var selectedPresetId = Anniversary.presets[0].id
+    @State private var customTitle = ""
+    @State private var date = Calendar.current.date(byAdding: .year, value: -1, to: Date()) ?? Date()
+    @State private var includeYear = true
+
+    private var selectedPreset: AnniversaryPreset {
+        Anniversary.presets.first { $0.id == selectedPresetId } ?? Anniversary.presets[0]
+    }
+    private var isCustom: Bool { selectedPresetId == "custom" }
+
+    @ViewBuilder
+    private func presetRows() -> some View {
+        ForEach(Anniversary.presets, id: \.id) { (preset: AnniversaryPreset) in
+            Button {
+                selectedPresetId = preset.id
+                if preset.id != "custom" { customTitle = "" }
+            } label: {
+                HStack(spacing: 14) {
+                    Text(preset.icon).font(.title3).frame(width: 28)
+                    Text(preset.title).foregroundStyle(.primary)
+                    Spacer()
+                    if preset.id == selectedPresetId {
+                        Image(systemName: "checkmark")
+                            .foregroundStyle(Color.accentColor)
+                            .fontWeight(.semibold)
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+        }
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Typ výročí") {
+                    presetRows()
+                }
+
+                if isCustom {
+                    Section("Název") {
+                        TextField("Název výročí", text: $customTitle)
+                    }
+                }
+
+                Section("Datum") {
+                    Toggle("Zahrnout rok (počet let)", isOn: $includeYear)
+                    DatePicker(
+                        "Datum",
+                        selection: $date,
+                        in: ...Date(),
+                        displayedComponents: [.date]
+                    )
+                }
+            }
+            .navigationTitle("Přidat výročí")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) { Button("Zrušit") { dismiss() } }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Přidat") {
+                        let cal = Calendar.current
+                        let m = cal.component(.month, from: date)
+                        let d = cal.component(.day,   from: date)
+                        let y = includeYear ? cal.component(.year, from: date) : nil
+                        let title = isCustom
+                            ? (customTitle.trimmingCharacters(in: .whitespaces).isEmpty ? "Výročí" : customTitle.trimmingCharacters(in: .whitespaces))
+                            : selectedPreset.title
+                        onSave(title, selectedPreset.icon, m, d, y)
+                        dismiss()
+                    }
+                    .bold()
+                }
+            }
+        }
     }
 }
 

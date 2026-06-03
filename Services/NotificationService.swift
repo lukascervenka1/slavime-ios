@@ -126,6 +126,75 @@ final class NotificationService {
         UNUserNotificationCenter.current().add(request)
     }
 
+    // MARK: – Daily digest
+
+    /// Naplánuje denní ranní přehled na dalších 7 dní.
+    /// Volej při každém spuštění aplikace, pokud je funkce zapnuta.
+    func scheduleDailyDigest(hour: Int, minute: Int, people: [Person]) {
+        cancelDailyDigest()
+        let cal = Calendar.current
+        let today = cal.startOfDay(for: Date())
+
+        for dayOffset in 0...6 {
+            guard let targetDate = cal.date(byAdding: .day, value: dayOffset, to: today) else { continue }
+            let month = cal.component(.month, from: targetDate)
+            let day   = cal.component(.day,   from: targetDate)
+
+            let calendarNames = NameDayService.shared.names(forMonth: month, day: day)
+            let myPeople = people.filter {
+                ($0.nameDayComponents?.month == month && $0.nameDayComponents?.day == day) ||
+                ($0.birthdayComponents?.month == month && $0.birthdayComponents?.day == day)
+            }
+
+            let content = UNMutableNotificationContent()
+            content.sound = .default
+
+            if myPeople.isEmpty {
+                guard !calendarNames.isEmpty else { continue }
+                let names = calendarNames.prefix(4).joined(separator: ", ")
+                content.title = dayOffset == 0 ? "Dnes slaví svátek" : "Zítra slaví svátek"
+                content.body = names
+            } else {
+                let nameDayPeople = myPeople.filter {
+                    $0.nameDayComponents?.month == month && $0.nameDayComponents?.day == day
+                }
+                let birthdayPeople = myPeople.filter {
+                    $0.birthdayComponents?.month == month && $0.birthdayComponents?.day == day
+                }
+                var parts: [String] = []
+                if !nameDayPeople.isEmpty {
+                    parts.append("🎉 Svátek: " + nameDayPeople.map(\.displayName).joined(separator: ", "))
+                }
+                if !birthdayPeople.isEmpty {
+                    parts.append("🎂 Narozeniny: " + birthdayPeople.map(\.displayName).joined(separator: ", "))
+                }
+                if !calendarNames.isEmpty {
+                    parts.append("📅 " + calendarNames.prefix(3).joined(separator: ", "))
+                }
+                content.title = dayOffset == 0 ? "Slavíme dnes!" : "Slavíme zítra!"
+                content.body = parts.joined(separator: "\n")
+            }
+
+            var dc = cal.dateComponents([.year, .month, .day], from: targetDate)
+            dc.hour = hour; dc.minute = minute
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dc, repeats: false)
+            let year = cal.component(.year, from: targetDate)
+            let id = "daily-digest-\(year)-\(String(format: "%02d", month))-\(String(format: "%02d", day))"
+            UNUserNotificationCenter.current().add(
+                UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+            )
+        }
+    }
+
+    func cancelDailyDigest() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { requests in
+            let ids = requests
+                .filter { $0.identifier.hasPrefix("daily-digest-") }
+                .map(\.identifier)
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ids)
+        }
+    }
+
     // MARK: – Private
 
     private func schedule(id: String, title: String, body: String,

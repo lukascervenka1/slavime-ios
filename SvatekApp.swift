@@ -16,11 +16,11 @@ struct SvatekApp: App {
     // Pokud SwiftData selže na migraci (změna modelu), smaže starý store a začne znovu.
     private static func makeContainer() -> ModelContainer {
         do {
-            return try ModelContainer(for: Person.self)
+            return try ModelContainer(for: Person.self, Anniversary.self)
         } catch {
             let storeURL = URL.applicationSupportDirectory.appending(path: "default.store")
             try? FileManager.default.removeItem(at: storeURL)
-            return try! ModelContainer(for: Person.self)
+            return try! ModelContainer(for: Person.self, Anniversary.self)
         }
     }
 }

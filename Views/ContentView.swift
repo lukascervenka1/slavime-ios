@@ -5,7 +5,13 @@ struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var people: [Person]
 
+    @AppStorage("dailyDigestEnabled") private var dailyDigestEnabled = false
+    @AppStorage("dailyDigestHour")    private var dailyDigestHour    = 8
+    @AppStorage("dailyDigestMinute")  private var dailyDigestMinute  = 0
+
     @State private var showingAdd = false
+    @State private var showingImport = false
+    @State private var showingSettings = false
     @State private var editingPerson: Person? = nil
     @State private var detailPerson: Person? = nil
     @State private var searchText = ""
@@ -110,9 +116,26 @@ struct ContentView: View {
             .navigationTitle("Svátky & Narozeniny")
             .searchable(text: $searchText, prompt: "Hledat jméno…")
             .toolbar {
-                ToolbarItem(placement: .primaryAction) {
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
-                        showingAdd = true
+                        showingSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .font(.system(size: 17))
+                    }
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Button {
+                            showingAdd = true
+                        } label: {
+                            Label("Přidat ručně", systemImage: "person.badge.plus")
+                        }
+                        Button {
+                            showingImport = true
+                        } label: {
+                            Label("Importovat z kontaktů", systemImage: "person.2.badge.plus")
+                        }
                     } label: {
                         Image(systemName: "plus")
                             .font(.system(size: 17, weight: .semibold))
@@ -120,12 +143,21 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showingAdd) { AddPersonView() }
+            .sheet(isPresented: $showingImport) { ContactImportView() }
+            .sheet(isPresented: $showingSettings) { SettingsView() }
             .sheet(item: $editingPerson) { AddPersonView(editingPerson: $0) }
             .sheet(item: $detailPerson) { PersonDetailView(person: $0) }
             .sheet(item: $giftReminderPerson) { person in
                 GiftReminderPickerView(person: person, eventKind: giftReminderEventKind)
             }
-            .onAppear { handleGiftReminderDeepLink() }
+            .onAppear {
+                handleGiftReminderDeepLink()
+                if dailyDigestEnabled {
+                    NotificationService.shared.scheduleDailyDigest(
+                        hour: dailyDigestHour, minute: dailyDigestMinute, people: people
+                    )
+                }
+            }
         }
     }
 

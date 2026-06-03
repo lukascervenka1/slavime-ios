@@ -22,6 +22,9 @@
 		AA000044 /* AppIconPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000045 /* AppIconPreview.swift */; };
 		AA000046 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000047 /* PersonDetailView.swift */; };
 		AA000048 /* NameOriginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000049 /* NameOriginService.swift */; };
+		AA000050 /* Anniversary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000051 /* Anniversary.swift */; };
+		AA000052 /* ContactImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000053 /* ContactImportView.swift */; };
+		AA000054 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000055 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		AA000045 /* AppIconPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconPreview.swift; sourceTree = "<group>"; };
 		AA000047 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		AA000049 /* NameOriginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameOriginService.swift; sourceTree = "<group>"; };
+		AA000051 /* Anniversary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anniversary.swift; sourceTree = "<group>"; };
+		AA000053 /* ContactImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactImportView.swift; sourceTree = "<group>"; };
+		AA000055 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,7 @@
 			children = (
 				AA000011 /* Person.swift */,
 				AA000019 /* UpcomingEvent.swift */,
+				AA000051 /* Anniversary.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,6 +111,8 @@
 				AA000041 /* GiftReminderPickerView.swift */,
 				AA000043 /* CalendarBrowseView.swift */,
 				AA000047 /* PersonDetailView.swift */,
+				AA000053 /* ContactImportView.swift */,
+				AA000055 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +201,9 @@
 				AA000044 /* AppIconPreview.swift in Sources */,
 				AA000046 /* PersonDetailView.swift in Sources */,
 				AA000048 /* NameOriginService.swift in Sources */,
+				AA000050 /* Anniversary.swift in Sources */,
+				AA000052 /* ContactImportView.swift in Sources */,
+				AA000054 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +346,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Slavíme";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Pro přidávání svátků a narozenin do Kalendáře";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Pro import kontaktů z adresáře do aplikace";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Pro výběr profilové fotky osoby";
 				INFOPLIST_KEY_NSUserNotificationsUsageDescription = "Pro připomínání svátků kamarádů a rodiny";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -373,6 +386,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Slavíme";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "Pro přidávání svátků a narozenin do Kalendáře";
+				INFOPLIST_KEY_NSContactsUsageDescription = "Pro import kontaktů z adresáře do aplikace";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Pro výběr profilové fotky osoby";
 				INFOPLIST_KEY_NSUserNotificationsUsageDescription = "Pro připomínání svátků kamarádů a rodiny";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

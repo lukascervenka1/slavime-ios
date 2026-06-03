@@ -37,6 +37,10 @@ class Person {
     var partyDate: Date?
     var partyRepeatsYearly: Bool
 
+    // Výročí
+    @Relationship(deleteRule: .cascade, inverse: \Anniversary.person)
+    var anniversaries: [Anniversary] = []
+
     // iOS Kalendář – event identifiers
     var calendarNameDayId: String?
     var calendarBirthdayId: String?
