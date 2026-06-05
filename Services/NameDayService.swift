@@ -45,7 +45,7 @@ final class NameDayService {
         // LEDEN
         // 1/1 Nový rok – státní svátek, bez jména svátku
         (1, 2,  ["Karina", "Karína", "Karin"]),
-        (1, 3,  ["Radmila"]),
+        (1, 3,  ["Radmila", "Radomila"]),
         (1, 4,  ["Diana"]),
         (1, 5,  ["Dalimil", "Dalemil"]),
         (1, 6,  ["Kašpar", "Melichar", "Baltazar"]),
@@ -155,7 +155,7 @@ final class NameDayService {
         (4, 16, ["Irena", "Irini"]),
         (4, 17, ["Rudolf", "Rolf"]),
         (4, 18, ["Valerie", "Valérie", "Valeria"]),
-        (4, 19, ["Rostislava"]),
+        (4, 19, ["Rostislava", "Rostislav"]),
         (4, 20, ["Marcela"]),
         (4, 21, ["Alexandra"]),
         (4, 22, ["Evženie", "Evžénie"]),
@@ -225,7 +225,7 @@ final class NameDayService {
         (6, 23, ["Zdeňka", "Zdena", "Zdenka"]),
         (6, 24, ["Jan"]),
         (6, 25, ["Ivan"]),
-        (6, 26, ["Adriana"]),
+        (6, 26, ["Adriana", "Adrian", "Adrián"]),
         (6, 27, ["Ladislav"]),
         (6, 28, ["Lubomír", "Lubomil"]),
         (6, 29, ["Petr", "Pavel"]),
@@ -362,7 +362,7 @@ final class NameDayService {
         // 11/2 Dušičky – bez jména svátku
         (11, 3,  ["Hubert"]),
         (11, 4,  ["Karel"]),
-        (11, 5,  ["Miriam"]),
+        (11, 5,  ["Miriam", "Zachariáš", "Zak"]),
         (11, 6,  ["Liběna"]),
         (11, 7,  ["Saskie"]),
         (11, 8,  ["Bohumír"]),
@@ -567,6 +567,20 @@ final class NameDayService {
         // Aneta
         "anetka": "aneta",
         "aneta": "aneta",
+        // Zachariáš
+        "zachariáš": "zachariáš",
+        "zacharias": "zachariáš",
+        "zachary": "zachariáš",
+        "zachar": "zachariáš",
+        "zak": "zachariáš",
+        // Rostislav
+        "rostislav": "rostislav",
+        "rosťa": "rostislav",
+        // Adrian
+        "adrián": "adrián",
+        "adrian": "adrián",
+        // Radomila
+        "radomila": "radomila",
         // ostatní jednoduché
         "nela": "nela",
         "martina": "martina",
