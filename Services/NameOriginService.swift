@@ -1213,5 +1213,506 @@ final class NameOriginService {
             meaning: "Pocházející z Adrie (Hadrianus - od antického města Adria)",
             funFact: "Jméno proslavil císař Hadrianus, který postavil Hadriánův val v Británii a Pantheon v Římě. Adriatické moře nese jméno starověkého etruského města Adria. Jediný anglický papež byl Hadrián IV. (12. stol.)."
         ),
+
+        // MARK: - Doplnění chybějících jmen
+
+        "dobroslav": .init(
+            language: "Slovanský",
+            meaning: "Dobrá sláva, slavný dobrotou (dobrý + slava)",
+            funFact: "Dobroslav je starobylé slovanské jméno kombinující dobrotu a slávu. Kořen dobr- je jedním z nejstarších slovanských výrazů — v ruštině добро znamená dobro i laskavost. Jméno je dnes vzácné, čímž je o to originálnější."
+        ),
+        "radmila": .init(
+            language: "Slovanský",
+            meaning: "Radostná a milá, milá radostí (rad + milá)",
+            funFact: "Krásné slovanské jméno kombinující radost (rad-) a laskavost (mil-). Kořen rad- najdeme i v jménech Radek, Radoslav a Radovan. Je typicky ženským jménem středoevropského prostoru bez přímého protějšku na Západě."
+        ),
+        "cestmir": .init(
+            language: "Slovanský",
+            meaning: "Ten, kdo ctí mír, slavný ctí (čest + mír)",
+            funFact: "Čestmír je starobylé slovanské dvousložkové jméno kombinující čest a mír. V kronikách se vyskytuje jako jméno přemyslovských bojovníků a udatných rytířů. Patří ke vzácnějším, ryze českým jménům bez ekvivalentu na Západě."
+        ),
+        "radovan": .init(
+            language: "Slovanský",
+            meaning: "Ten, kdo raduje, radující se (rad + ván = radovat)",
+            funFact: "Jméno ze starobylé slovanské tradice vyjadřující radost a veselí. Je oblíbené v českém, srbském a chorvatském prostředí. Kořen rad- je jedním z nejproduktivnějších slovanských jmenných základů, najdeme ho v desítkách jmen od Radmily po Rostislava."
+        ),
+        "drahoslav": .init(
+            language: "Slovanský",
+            meaning: "Drahá sláva, slavný drahocenností (drahý + slava)",
+            funFact: "Staroslovanské dvousložkové jméno spojující drahý (vzácný, milovaný) a slávu. Kořen drah- přenesl svůj původní význam vzácný i do moderní češtiny — drahoušek, drahota, drahokam. Je jedním z typicky staroslovanských jmen bez překladu do jiných jazyků."
+        ),
+        "valentyn": .init(
+            language: "Latinský",
+            meaning: "Zdravý, silný, statný (valens = silný)",
+            funFact: "Sv. Valentýn (14. 2.) byl kněz, který tajně oddával vojáky, přestože císař Claudius II. manželství vojákům zakazoval. Spojení s láskou vzniklo v anglické středověké literatuře — básník Chaucer věřil, že ptáci si v tento den vybírají partnera. Dnes je svátek oslavován ve stovkách zemí."
+        ),
+        "valentyna": .init(
+            language: "Latinský",
+            meaning: "Zdravá, silná, statná — ženská forma Valentýna (valens = silný)",
+            funFact: "Valentýna Těreškovová byla v roce 1963 první ženou ve vesmíru — obletěla Zemi 48krát na palubě Vostoku 6. Svátek 14. 2. (Valentýn) je pojmenován po sv. Valentýnovi, který tajně oddával vojáky navzdory císařovu zákazu."
+        ),
+        "milada": .init(
+            language: "Slovanský",
+            meaning: "Milá, příjemná, laskavá (milŭ = milý, příjemný)",
+            funFact: "Milada Horáková byla česká právnička a politička — v roce 1950 ji komunistický režim popravil jako jedinou ženu v politickém procesu. Je symbolem odboje a nespravedlnosti totalitního režimu. Nadace Milady Horákové dodnes oceňuje odvahou vyznačující se lidi."
+        ),
+        "matej": .init(
+            language: "Hebrejský",
+            meaning: "Boží dar (Mattityahu = dar od Jahveho)",
+            funFact: "Apoštol Matyáš/Matěj byl losem vybrán jako náhrada za Jidáše Iškariotského — jediný apoštol určený tímto způsobem. Přímý los jako způsob výběru pak zanikl. Matěj je českou formou, Matyáš slovenskou a Matthias německou variantou tohoto starozákonního jména."
+        ),
+        "lumir": .init(
+            language: "Slovanský",
+            meaning: "Světlý, jasný, svítivý (lum = světlo, zář)",
+            funFact: "Lumír je jméno legendárního slovanského barda, který zpíval na dvoře knížete Hostivíta. Lumírova škola — literární hnutí 19. stol. kolem časopisu Lumír — prosazovala českou literaturu světové úrovně. Julius Zeyer a Jaroslav Vrchlický byli jejími hlavními představiteli."
+        ),
+        "horymir": .init(
+            language: "Slovanský",
+            meaning: "Hora a mír, ten kdo přináší mír z hor",
+            funFact: "Rytíř Horymír z Neumětel přeskočil s koněm Šemíkem nepřekonatelné hradby Vyšehradu — slavná česká pověst z přemyslovských dob. Za tento čin mu kníže Křesomysl daroval svobodu. Svátek Horymíra připadá na přestupný den 29. 2. — den, který se opakuje jednou za čtyři roky."
+        ),
+        "rehor": .init(
+            language: "Latinský / Řecký",
+            meaning: "Bdělý, ostražitý, pozorný (gregorios = bdělý)",
+            funFact: "Řehoř Veliký (6. stol.) zavedl gregoriánský chorál — vícehlasý zpěv, jenž po 15 staletí zní v kostelích celého světa. Jméno neslo 16 papežů. Řehoř XIII. zavedl v roce 1582 gregoriánský kalendář, který používáme dodnes — opravil chybu juliánského o 10 dní."
+        ),
+        "sona": .init(
+            language: "Řecký",
+            meaning: "Moudrost — slovanská zdrobnělina Sofie (sophia = moudrost)",
+            funFact: "Soňa je domácká slovanská forma Sofie. Soňa z Tolstého Vojny a míru je jednou z nejsympatičtějších postav světové literatury — symbol obětavé lásky. Filosofie (filo + sofia = milovat moudrost) nese tentýž základ jako toto jméno."
+        ),
+        "sonja": .init(
+            language: "Řecký",
+            meaning: "Moudrost — skandinávská a balkánská forma Sofie (sophia)",
+            funFact: "Sonja je skandinávská varianta Sofie/Soni. Norská korunní princezna Sonja si vzala Haralda navzdory odporu královského dvora — byl to jeden z prvních modernizačních kroků norské monarchie: sňatek prince s dívkou z prostého lidu. Dnes je norskou královnou."
+        ),
+        "sonia": .init(
+            language: "Řecký",
+            meaning: "Moudrost — internacionální forma Sofie (sophia = moudrost)",
+            funFact: "Sonia je anglická a španělská varianta Sofie. Sonia Gandhi, rodačka z Itálie, se provdala do indické politické dynastie Néhrú-Gándhí a stala se jednou z nejmocnějších žen Indie. Filosofie = milovat moudrost (filo + sofia) nese tentýž základ."
+        ),
+        "emanuel": .init(
+            language: "Hebrejský",
+            meaning: "Bůh s námi (Immanuel = El + imanu = Bůh + s námi)",
+            funFact: "Jméno Emanuel je prorocké jméno Mesiáše z knihy Izaiáš: Hle, panna počne a porodí syna a dá mu jméno Immanuel. Immanuel Kant — největší novověký filosof — napsal Kritiku čistého rozumu a Kritiku praktického rozumu. V Čechách jméno nosil Emanuel z Valdštejna."
+        ),
+        "dita": .init(
+            language: "Germánský / Hebrejský",
+            meaning: "Zdrobnělina Judity nebo Edity — bojovná žena",
+            funFact: "Dita je česká domácká forma Judity nebo Edity. Dita Saxová je název novely Arnošta Lustiga o dívce přeživší holocaust — symbolická postava české literatury 20. století. Dita von Teese je světoznámá burlesque umělkyně, která toto jméno proslavila v populární kultuře."
+        ),
+        "erika": .init(
+            language: "Severský / Germánský",
+            meaning: "Věčná vládkyně (ei = věčně + ríkr = mocný, vládce)",
+            funFact: "Erika je ženská forma Erika. Leif Eriksson dosáhl jako první Evropan Ameriky kolem roku 1000 — 500 let před Kolumbem. Erika je také rod vřesu — v Německu symbol kvetoucí odolnosti. Píseň Erika z 2. světové války je dodnes kontroverzní německou vojenskou písní."
+        ),
+        "julius": .init(
+            language: "Latinský",
+            meaning: "Z rodu Iuliů, prvně narozený nebo zasvěcený Jovovi",
+            funFact: "Julius Caesar je jednou z nejznámějších postav světových dějin. Slova Kaiser a Car — základ ruského titulu — pocházejí přímo od jeho jména. Juliánský kalendář, zavedený Caesarem v roce 46 př. n. l., byl v Evropě používán přes 1 600 let."
+        ),
+        "anastazie": .init(
+            language: "Řecký",
+            meaning: "Vzkříšení, nové povstání (anastasis = vzkříšení, vstání)",
+            funFact: "Anastázie Nikolajevna, nejmladší dcera cara Mikuláše II., byla popravena v roce 1918. Záhada kolem jejího osudu inspirovala desítky knih a filmů. DNA analýza z roku 2009 nakonec potvrdila, že zahynula spolu s celou carskou rodinou — po 91 letech nejistoty."
+        ),
+        "blahoslav": .init(
+            language: "Slovanský",
+            meaning: "Šťastná sláva, slavný blažeností (blaho + slava)",
+            funFact: "Jan Blahoslav byl biskupem jednoty bratrské a přeložil Nový zákon do češtiny (1564) — jeho překlad se stal základem pro slavnou Bibli kralickou. Jako jazykovědec napsal i první českou gramatiku s praktickými pravidly. Bez něj by nevznikl nejkrásnější český literární překlad Bible."
+        ),
+        "pankrac": .init(
+            language: "Řecký",
+            meaning: "Vládce všeho, všemocný (pan = vše + kratos = moc)",
+            funFact: "Sv. Pankrác byl 14letý chlapec umučený za víru kolem roku 304. Spolu se Servácem a Bonifácem tvoří tzv. Železné muže — jejich svátky kolem 12.–14. 5. přinášejí podle lidové tradice pozdní jarní mrazíky. Plavci a zemědělci se na ně tradičně připravují dodnes."
+        ),
+        "servac": .init(
+            language: "Latinský / Germánský",
+            meaning: "Ten, kdo zachraňuje (servare = zachránit)",
+            funFact: "Sv. Servác je patronem Maastrichtu. Spolu s Pankrácem a Bonifácem tvoří Železné muže — jejich svátky 12.–14. 5. jsou spojeny s lidovou předpovědí pozdních mrazíků. Lidová říkanka: Pankrác, Servác, Bonifác — tři mrazivci, zahradníkovi škůdci."
+        ),
+        "bonifac": .init(
+            language: "Latinský",
+            meaning: "Dobré předurčení, šťastný osud (bonus fatum = dobrý osud)",
+            funFact: "Sv. Bonifác Mohučský (8. stol.) byl apoštol Germánů — porazil posvátný dub boha Thora a z jeho dřeva postavil kapli. Je patronem Německa. Tvoří trojici Železných mužů s Pankrácem a Servácem, jejichž svátky 12.–14. 5. jsou spojeny s pozdními jarními mrazíky."
+        ),
+        "emil": .init(
+            language: "Latinský",
+            meaning: "Z rodu Aemiliů, soupeřivý, pilný (aemulus = soupeř)",
+            funFact: "Emil Zátopek je největší český sportovec všech dob — na olympiádě v Helsinkách 1952 vyhrál 5 000 m, 10 000 m i maraton. Přeběhl i svou ženu Danu na zlatou v hodu oštěpem. Vítěz čtyřnásobné zlaté na jedné olympiádě — výkon, jenž se pravděpodobně již nezopakuje."
+        ),
+        "medard": .init(
+            language: "Germánský",
+            meaning: "Mocná síla, velká energie (megin = síla + hard = silný)",
+            funFact: "Sv. Medard (8. 6.) je v Čechách i Německu neoficiálním meteorologem: Medard dá-li pršet, prší 40 dní celých. Tento lidový prorok deštivého léta je dodnes populárním barometrem. Legenda říká, že jako dítě ho chránil před deštěm orel svými křídly pro jeho zbožnost."
+        ),
+        "bruno": .init(
+            language: "Germánský",
+            meaning: "Hnědý, temný, brunátný (brun = hnědý)",
+            funFact: "Giordano Bruno (16. stol.) hájil heliocentrismus a teorii nekonečného vesmíru s mnoha světy. Byl upálen jako kacíř na římském Campo de' Fiori — dnes tam stojí jeho socha jako symbol svobody myšlení. Sv. Bruno Querfurtský přinesl křesťanství Prusům a padl při misii."
+        ),
+        "roland": .init(
+            language: "Germánský",
+            meaning: "Slavný v zemi, proslavený vlasti (hrod = sláva + land = země)",
+            funFact: "Roland je hrdina středověkého francouzského eposu Píseň o Rolandovi — padl v bitvě u Roncevaux (778) bránit říši Karla Velikého. Je symbolem rytířské cti a věrnosti. Sochy Rolanda stojí dodnes v mnoha německých a polských městech jako symboly svobody a spravedlnosti."
+        ),
+        "cenek": .init(
+            language: "Latinský",
+            meaning: "Vítěz — česká forma Vincence (vincere = vítězit)",
+            funFact: "Čeněk je ryze česká forma latinského Vincenc. Čeněk z Vartemberka byl vůdcem české šlechty v husitských dobách a bojoval za náboženská práva. V Čechách je Čeněk vzácným, ale tradičně doloženým jménem od středověku, kdy ho nosili i šlechtici i měšťané."
+        ),
+        "ilja": .init(
+            language: "Hebrejský / Slovanský",
+            meaning: "Jahve je Bůh (Eliyahu = slovanská forma Eliáše)",
+            funFact: "Ilja je slovanská forma hebrejského Eliáše. V ruské tradici je Ilja Muromec — bohatýr z bylin — nejvýznamnějším slovanským epickým hrdinem, analogie Herkula nebo Achilla. Prorok Eliáš svolal na hoře Karmel oheň z nebes — jeden z nejdramatičtějších biblických příběhů."
+        ),
+        "borek": .init(
+            language: "Slovanský",
+            meaning: "Bojovník, ten, kdo si razí cestu (boriti = bojovat)",
+            funFact: "Bořek je česká domácká forma jmen jako Bořivoj nebo Bořislav. Bořek Stavitel je populární česká animovaná série pro děti, inspirovaná britským Bobem Stavitelem. Kořen bor- se vyskytuje i ve jméně Bořivoj — prvního historicky doloženého přemyslovského knížete."
+        ),
+        "bernard": .init(
+            language: "Germánský",
+            meaning: "Silný jako medvěd (berin = medvěd + hard = silný, odvážný)",
+            funFact: "Sv. Bernard z Clairvaux (12. stol.) byl největší duchovní autorita středověké Evropy — kázal 2. křížovou výpravu. Sv. Bernard z Mentonu dal jméno průsmyku Sv. Bernarda a psímu plemenu bernardýn — tato záchranná horská zvířata byla proslulá sudičkou koňaku pro ztracené cestovatele ve Alpách."
+        ),
+        "johana": .init(
+            language: "Hebrejský",
+            meaning: "Bůh je milostivý — ženská forma Jana (Yochanan)",
+            funFact: "Johana z Arku (Jeanne d'Arc) je nejslavnější nositelka tohoto jména — 17letá dívka vedla francouzskou armádu a přelomila stoletou válku. Byla upálena v Rouenu (1431) ve věku 19 let. V roce 1920 ji církev kanonizovala a dnes je francouzskou národní hrdinkou a symbolem odvahy."
+        ),
+        "sobeslav": .init(
+            language: "Slovanský",
+            meaning: "Slavný sobě, získávající slávu (sobě + slava)",
+            funFact: "Přemyslovský kníže Soběslav I. porazil v bitvě u Chlumce (1126) německou armádu císaře Lothara — jedna z největších vojenských výher českých knížat. Po vítězství přinesl na bojiště ostatky sv. Václava jako poděkování za ochranu. Bitva zastavila německou expanzi do Čech."
+        ),
+        "boleslav": .init(
+            language: "Slovanský",
+            meaning: "Mnohem více slavný, velká sláva (bole = více + slava)",
+            funFact: "Boleslav I. — Boleslav Ukrutný — nechal zavraždit svého bratra sv. Václava (935). Přesto byl zdatným vladařem, jenž rozšířil českou říši. Jeho syn Boleslav II. Pobožný dokončil christianizaci Čech — historický paradox, že náboženská tradice pokračovala v dynastii bratrova vraha."
+        ),
+        "jeronym": .init(
+            language: "Řecký",
+            meaning: "Posvátné jméno, ten s posvátným jménem (hieros + onyma)",
+            funFact: "Sv. Jeroným ze Stridonu přeložil Bibli do latiny — Vulgata se stala standardním textem Církve na 1 500 let. Jeroným Pražský byl stoupenec Jana Husa, popravený v Kostnici (1416) — druhý po svém mistru. Je po Husovi nejvýznamnějším mučedníkem českých reformačních dějin."
+        ),
+        "oleg": .init(
+            language: "Severský (skandinávský)",
+            meaning: "Posvátný, blahoslavený (Helgi = posvátný)",
+            funFact: "Oleg Kyjevský (9.–10. stol.) byl varjažský vůdce, který sjednotil Novgorod a Kyjev a položil základ Kyjevské Rusi. Prý přibil štít na bránu Cařihradu jako symbol moci. Jméno přišlo do slovanského světa s Vikingy — varanžskými obchodníky z Pobaltí."
+        ),
+        "teodor": .init(
+            language: "Řecký",
+            meaning: "Boží dar (theos = bůh + doron = dar)",
+            funFact: "Teodor je řecká verze jména — stejný základ má i Dorota (dar Boha, přehozeně). Byzantská císařovna Theodora (6. stol.) z tanečnice stala se nejmocnější ženou tehdejšího světa. Když vypukla povstání, odmítla uprchnout se slovy: Purpur je nejlepší rubáš — a trůn zachránila."
+        ),
+        "nina": .init(
+            language: "Hebrejský / Gruzínský",
+            meaning: "Milost Boží — varianta Anny; nebo gruzínská světice",
+            funFact: "Sv. Nina přinesla křesťanství do Gruzie v 5. stol. — je patronkou Gruzie. Nesla ji i Nina Simone, legendární americká jazzová zpěvačka. V češtině je Nina oblíbenou domáckou formou jmen jako Antonína nebo Janina. Jméno je krátké, melodické a oblíbené po celém světě."
+        ),
+        "erik": .init(
+            language: "Severský (skandinávský)",
+            meaning: "Věčný vládce (ei = věčně + ríkr = mocný, vládce)",
+            funFact: "Erik Rudý byl vikingský průzkumník, který kolem roku 985 osnoval grónskou kolonii. Jeho syn Leif Eriksson dosáhl jako první Evropan Severní Ameriky — přibližně roku 1000, celých 492 let před Kolumbem. Švédský král Erik IX. Světec je patronem Švédska."
+        ),
+        "zoe": .init(
+            language: "Řecký",
+            meaning: "Život (zoe = život)",
+            funFact: "Zoe je přímý řecký překlad hebrejského jména Eva (Chava = živoucí). Byzantská císařovna Zoe (11. stol.) vládla Konstantinopoli a sama si vybírala manžely-císaře — vládla jako rovnocenná spoluregentka. Jméno je dnes celosvětově populární pro svou jednoduchost a silný životní význam."
+        ),
+        "felix": .init(
+            language: "Latinský",
+            meaning: "Šťastný, blažený, úspěšný (felix = šťastný)",
+            funFact: "Felix je latinský protějšek řeckého Makarios a hebrejského Ašer — všechna tato jména znamenají šťastný. Felix Mendelssohn je jedním z nejhranějších romantických skladatelů — napsal Svatební pochod ze Snu noci svatojánské, který zní na svatbách po celém světě dodnes."
+        ),
+        "miriam": .init(
+            language: "Hebrejský",
+            meaning: "Milovaná Bohem nebo hořká (Miryam) — nejstarší forma jména Marie",
+            funFact: "Miriam je nejstarší dochovaná forma jména Marie. Miriam, sestra Mojžíše, zpívala vítěznou píseň po přechodu Rudého moře — jedna z prvních žen v Bibli obdařených proroctvím. Marie / Miriam je nejrozšířenějším ženským jménem v historii — odhaduje se přes 70 milionů nositelek."
+        ),
+        "bohdan": .init(
+            language: "Slovanský",
+            meaning: "Bohém daný, dar od Boha (boh + dan = Bohem daný)",
+            funFact: "Bohdan je slovanský překlad latinského Donatus nebo řeckého Theodoros — Bohem daný. Bohdan Chmelnický byl vůdce kozácké revoluce v 17. stol. a zakladatel kozácké státnosti na Ukrajině. Jméno je oblíbené na Ukrajině, v Polsku i v Čechách."
+        ),
+        "albert": .init(
+            language: "Germánský",
+            meaning: "Ušlechtile zářivý, vznešeně jasný (adal + beraht = vznešený + zářivý)",
+            funFact: "Albert Einstein formuloval teorii relativity a rovnici E=mc² — nejznámější vědec 20. století. Albert je zkrácenina Adalbert — v češtině totéž jako Vojtěch. Belgický král Albert I. odmítl v roce 1914 německé ultimátum a osobně vedl obranu země — stal se symbolem belgické národní hrdosti."
+        ),
+        "artur": .init(
+            language: "Keltský",
+            meaning: "Medvěd, medvědí síla (arth = medvěd)",
+            funFact: "Král Artuš s rytíři Kulatého stolu je nejslavnější mýtus západní Evropy — symbolizuje ideál rytířství, spravedlnosti a jednoty. Arthur Conan Doyle stvořil Sherlocka Holmese — nejpřekládanější fiktivní postavu světové literatury. Artušovské legendy inspirovaly opery, filmy i muzikály po celém světě."
+        ),
+        "rene": .init(
+            language: "Latinský",
+            meaning: "Znovuzrozený, obrozený (renatus = znovu narozený)",
+            funFact: "René Descartes vyslovil Cogito ergo sum — Myslím, tedy jsem — základ novověké filosofie. Je zakladatelem analytické geometrie a kartézských souřadnic (kartézský = od Cartesius = latinizace Descartes). Jméno symbolizovalo v renesanci duchovní obrodu skrze křest — renesance sama znamená znovuzrození."
+        ),
+        "zina": .init(
+            language: "Řecký",
+            meaning: "Zkrácenina Zinajdy — Zeusova dcera (Zinais = patřící Diovi)",
+            funFact: "Zina je domácká forma řeckého jména Zinaida. Populárně ji proslavila Xena: Princezna válečnice — americký seriál z 90. let, kde hlavní hrdinka Xena/Zina bojovala za spravedlnost ve starověku. Jméno je oblíbené v ruském a česko-slovenském prostředí."
+        ),
+        "iva": .init(
+            language: "Germánský / Slovanský",
+            meaning: "Vrba nebo tis (iva = vrba); nebo zdrobnělina Ivany",
+            funFact: "Iva je česká domácká forma Ivany nebo samostatné jméno (iva = vrba). Ve slovanské tradici byla vrba symbolem plodnosti a znovuzrození — vrbové proutky jsou základem velikonočních pomlázek dodnes. Jméno bylo v 60.–80. letech velmi populární v Čechách a na Slovensku."
+        ),
+        "benjamin": .init(
+            language: "Hebrejský",
+            meaning: "Syn pravé ruky, syn jižní strany (ben = syn + jamin = pravice, jih)",
+            funFact: "Benjamín byl nejmladší syn biblického Jákoba a nejoblíbenější — odtud výraz benjamínek rodiny. Benjamin Franklin vynalezl bleskosvod, bifokální brýle a jako první vědecky dokázal elektrický charakter blesku. Jeho portrét je na americké stodalerové bankovce."
+        ),
+        "ambroz": .init(
+            language: "Latinský / Řecký",
+            meaning: "Nesmrtelný, božský (ambrotos = nesmrtelný)",
+            funFact: "Ambrosia byl nápoj nesmrtelnosti olympských bohů. Sv. Ambrož Milánský (4. stol.) je patronem Milána a zavedl ambrozianský chorál — systém liturgického zpěvu. Milan je pojmenován po sv. Ambrožovi (Mediolanum). Byl prvním biskupem, jehož kázání přivedla sv. Augustýna ke konverzi."
+        ),
+        "judita": .init(
+            language: "Hebrejský",
+            meaning: "Judejka, žena z Judeje (Yehudit)",
+            funFact: "Biblická Judita zachránila svůj lid tím, že svůdně přilákala asyrského vojevůdce Holoferna a v noci mu sťala hlavu. Tento čin inspiroval malíře Klimta, Caravaggia i Artemisii Gentileschi — patří k nejčastěji zobrazovaným biblickým scénám. Judita je vzorem statečné ženy v celé světové kultuře."
+        ),
+        "radana": .init(
+            language: "Slovanský",
+            meaning: "Radostná, šťastná (rad = radost)",
+            funFact: "Radana je česká ženská forma s kořenem rad-, jenž vyjadřuje radost a veselí. Najdeme ho v desítkách slovanských jmen — Radmila, Radoslav, Radovan, Radek. Je to typicky středoevropské jméno bez přímého protějšku v germánských nebo románských jazycích."
+        ),
+        "ester": .init(
+            language: "Hebrejský / Perský",
+            meaning: "Hvězda (esther = hvězda); nebo perská bohyně Ištar",
+            funFact: "Biblická Ester zachránila židovský národ před genocidou na perském dvoře — svátek Purim připomíná tuto záchranu dodnes. Ester Ledecká je česká sportovkyně, která na ZOH 2018 v Pchjongčchangu vyhrála zlaté medaile v snowboardu i v alpském lyžování — unikátní double na jedněch hrách."
+        ),
+        "alexandr": .init(
+            language: "Řecký",
+            meaning: "Obránce lidí (alexein = obránce + aner = muž)",
+            funFact: "Alexandr Makedonský dobyl do 33 let největší říši starověku — od Řecka po Indii. Na jeho počest bylo pojmenováno přes 70 měst Alexandrie. Alexandre Dumas napsal Tři mušketýry a Hraběte Monte Kristo — jedny z nejpřekládanějších dobrodružných románů světa."
+        ),
+        "alan": .init(
+            language: "Keltský",
+            meaning: "Harmonie, klid (alan = kamenný; nebo ze starokeltského = harmonie)",
+            funFact: "Alan Turing byl matematik, který rozluštil německou šifru Enigma za druhé světové války a zachránil miliony životů. Zároveň je otcem informatiky — Turingův test pro umělou inteligenci je dodnes standardem. Byl pronásledován za homosexualitu a zemřel tragicky ve 41 letech."
+        ),
+        "ivo": .init(
+            language: "Germánský",
+            meaning: "Tisový luk, válečník s tisovým lukem (iv = tis, druh stromu)",
+            funFact: "Sv. Ivo Bretaňský (14. stol.) byl právník, který bezplatně zastupoval chudé — je patronem právníků a advokátů. V románských jazycích existuje jako Yves — módní návrhář Yves Saint Laurent proslavil toto jméno ve světě módy. Je rozšířen od Bretaně přes Itálii až po Čechy."
+        ),
+        "ludek": .init(
+            language: "Germánský",
+            meaning: "Slavný bojovník — česká domácká forma Ludvíka (hlud + wig = sláva + boj)",
+            funFact: "Luděk je česká domácká forma jména Ludvík. Jméno Ludwig/Ludvík neslo 18 francouzských králů. Ludwig van Beethoven složil svou devátou symfonii (Ódu na radost) absolutně hluchý — dirigoval premiéru a neslyšel ani hlas ani aplaus. Dnes je Óda na radost hymnou Evropské unie."
+        ),
+        "vanda": .init(
+            language: "Germánský / Slovanský",
+            meaning: "Z kmene Vendů nebo Vandalů; nebo slovansky: kdo se vrací",
+            funFact: "Vanda je jméno polské královny z pověsti — dcery Kroka, která se raději hodila do Visly, než by se provdala za německého nápadníka. Vandové — germánský kmen — dali slovům vandalismus a vandal přezdívku ničitelů kultury po vyplenění Říma v roce 455."
+        ),
+        "apolena": .init(
+            language: "Řecký",
+            meaning: "Patřící bohu Apollónovi (Apollonia)",
+            funFact: "Sv. Apolena (Apollonie) byla mučednice, které byly vytrhány zuby — proto je patronkou zubařů a lidí trpících bolestmi zubů. Na svátek sv. Apoleny (9. 2.) si lékaři připomínají tuto patronku. Apolineion bylo v antice Apollónův chrám."
+        ),
+        "jarmil": .init(
+            language: "Slovanský",
+            meaning: "Jarý a milý, jarem milovaný (jaro + milý)",
+            funFact: "Jarmil je mužská forma jména Jarmila — oba sdílejí základ jaro a milý. Svátky slaví 2. června, blízko letního slunovratu. Kombinace jarní energie a laskavosti dělá z tohoto jména typický příklad starobylých slovanských dvousložkových jmen bez ekvivalentu v jiných jazykových rodinách."
+        ),
+        "ida": .init(
+            language: "Germánský / Řecký",
+            meaning: "Pracovitá, pilná (id = práce); nebo z hory Ida na Krétě",
+            funFact: "Hora Ida na Krétě je místem, kde byl podle mýtu vychován Zeus v tajnosti před svým otcem Kronem. Ida von Hahn-Hahn byla významná německá spisovatelka 19. stol. — přes ní se jméno rozšířilo do střední Evropy. Jméno je krátké, silné a oblíbené napříč kulturami."
+        ),
+        "venceslav": .init(
+            language: "Slovanský",
+            meaning: "Věnec slávy, ověnčený slávou (věnec + slava)",
+            funFact: "Věnceslav je starší forma slavného jména Václav. Václav/Věnceslav byl patron Čech a jeho jméno dalo vzniknout říkance Good King Wenceslas — anglická vánoční píseň o českém světci, zpívaná po celém anglosaském světě každé Vánoce."
+        ),
+        "lumil": .init(
+            language: "Slovanský",
+            meaning: "Laskavý, světlý (lum + milý = světlý a milý)",
+            funFact: "Lumil je vzácné starobylé jméno s kořenem lum- (světlo, jas) a mil- (milý, laskavý). Patří ke jménům, která jsou doložena v historických análech, ale v moderní době se téměř nepoužívají — nositelé tohoto jména jsou skutečnou raritou."
+        ),
+
+        // MARK: - Třetí dávka
+
+        "kaspar": .init(
+            language: "Perský / Aramejský",
+            meaning: "Strážce pokladu (gizbar = správce pokladu)",
+            funFact: "Kašpar, Melichar a Baltazar jsou tři králové, kteří přinesli dítěti Ježíšovi zlato, kadidlo a myrhu. Jejich jména nejsou v Bibli — přidala je tradice. Na svátek Tří králů (6. 1.) se na dveře píše K+M+B, tedy Caspar, Melchior, Balthasar — a v Čechách chodí Tříkrálová sbírka."
+        ),
+        "melichar": .init(
+            language: "Hebrejský",
+            meaning: "Král světla nebo král města (malkî = král + or = světlo)",
+            funFact: "Melichar, spolu s Kašparem a Baltazarem, je jedním ze Tří králů. Tradičně je zobrazován jako starý muž přinášející zlato. Kostnický koncil (1414–1418) skončil i proto, že přišel Melichar z Melku — ale to je jen jazyková hříčka. Jméno je dnes v Čechách vzácné."
+        ),
+        "baltazar": .init(
+            language: "Babylonský / Perský",
+            meaning: "Nechť Bel chrání krále (Bel-šarra-usur)",
+            funFact: "Baltazar je jedním z Tří králů — tradičně nejmladší, zobrazovaný s myrhou. Babylonský král Belšasar z Bible viděl na zdi nápis Mene mene tekel ufarsin — odkud pochází rčení číst nápis na zdi jako varování. Jméno je ikonické díky vánočním tradicím po celém světě."
+        ),
+        "doubravka": .init(
+            language: "Slovanský",
+            meaning: "Dubový háj, dubové listí (doubrava = dubový les)",
+            funFact: "Doubravka (Dobrawa) Česká byla dcerou Boleslava I. a manželkou polského knížete Mieszka I. Přivedla křesťanství do Polska (966) — křest Polska je jednou z klíčových událostí středoevropských dějin. Bez Doubravky by nebylo polské království ani Polska jako křesťanské země."
+        ),
+        "bela": .init(
+            language: "Slovanský / Maďarský",
+            meaning: "Bílá, světlá (bělý = bílý); nebo maďarsky vnitřní, srdce",
+            funFact: "Běla je česká zdrobnělina jmen jako Běloslav nebo Bělomír, nebo ženská forma maďarského Bély. Maďarský král Béla IV. přestavěl Uhersko po tatarském vpádu 1241–1242 — díky němu bylo Maďarsko zachráněno. V češtině je Běla také oblíbenou domáckou formou Alžběty."
+        ),
+        "vladan": .init(
+            language: "Slovanský",
+            meaning: "Ten, kdo vládne, vladař (vlad = vládnout)",
+            funFact: "Vladan je zkrácenina jmen Vladimír nebo Vladislav — vychází ze slovanského kořene vlad (vládnout). Vladan Desnica byl významný jugoslávský spisovatel. Jméno je oblíbené v srbském a chorvatském prostředí, v Čechách je méně obvyklé."
+        ),
+        "pravoslav": .init(
+            language: "Slovanský",
+            meaning: "Pravdivě slavný, slavný pravdou (pravda + slava)",
+            funFact: "Pravoslav kombinuje pravdu a slávu — je typickým příkladem slovanského dvousložkového jména s etickým nábojem. Pravoslaví — pravá sláva Boha — je odtud pojmenována větev křesťanství. Jméno je v Čechách vzácné, ale jeho kořeny sahají hluboko do slovanské tradice."
+        ),
+        "otylie": .init(
+            language: "Germánský",
+            meaning: "Majetek, jmění (aud/od = bohatství) — ženská forma Oty",
+            funFact: "Otýlie nebo Ota jsou germánská jména s kořenem aud (majetek, bohatství). Sv. Odilie (Otýlie) je patronkou Alsaska — legendárně se narodila slepá a prozřela při křtu. Hora sv. Odilie v Alsasku je nejnavštěvovanějším poutním místem oblasti a nabízí úchvatný výhled na Rýnskou nížinu."
+        ),
+        "robin": .init(
+            language: "Germánský",
+            meaning: "Zářivou slávou proslulý — zkrácenina Roberta (hrod + beraht)",
+            funFact: "Robin Hood je nejslavnější nositel tohoto jména — loupežník z Sherwoodského lesa, který bral bohatým a dával chudým. Je symbolem spravedlnosti a odvahy. Robin je v anglosaském světě oblíbenou domáckou formou Roberta — Robin Williams, Robin Wright."
+        ),
+        "marika": .init(
+            language: "Hebrejský",
+            meaning: "Milovaná Bohem — maďarská / středoevropská zdrobnělina Marie",
+            funFact: "Marika je maďarská a středoevropská zdrobnělina jména Marie. Marie je nejrozšířenější ženské jméno v historii — odhaduje se přes 70 milionů nositelek. Marika Rökk byla populární maďarsko-německá herečka a tanečnice, hvězda německého filmu 30.–40. let."
+        ),
+        "dobromila": .init(
+            language: "Slovanský",
+            meaning: "Dobrá a milá, milá svou dobrotou (dobrý + milá)",
+            funFact: "Dobromila je starobylé slovanské ženské jméno kombinující dobrotu a laskavost. Kořen dobr- (dobrý) je jedním z nejuniverzálnějších slovanských výrazů — dobro, dobrosrdečný, dobrotivý. Jméno bylo v Čechách oblíbené v 19. století a dnes je vzácnou raritou."
+        ),
+        "slavena": .init(
+            language: "Slovanský",
+            meaning: "Slavná, proslulá (slava = sláva)",
+            funFact: "Slavěna je ženská forma mužských jmen jako Slavomír nebo Slavibor. Symbolizuje slávu a hrdost — kořen slav- je základem i slova Slovan, protože Slované se původně sami nazývali Sloveni (ti slavní nebo ti, co mluví jasně — slovo = řeč)."
+        ),
+        "gizela": .init(
+            language: "Germánský",
+            meaning: "Rukojmí, zástavní (gisel = rukojmí, zástava dobré víry)",
+            funFact: "Gisela Bavorská se provdala za Štěpána I. Uherského a přinesla do Uher křesťanství — analogie Doubravky v Polsku. Její bratr byl císař Jindřich II. Jméno bylo oblíbené v německých a maďarských královských rodinách. Gisela je dnes jméno oblíbené i v Latinské Americe."
+        ),
+        "liliana": .init(
+            language: "Latinský",
+            meaning: "Lilie (lilium = lilie, symbol čistoty)",
+            funFact: "Liliana je rozvinutá forma jména Lilie/Lily. Lilie je v křesťanské symbolice znakem Panny Marie a čistoty — anděl Gabriel ji drží na obrazech Zvěstování. Lily Allen, Lily James, Liliana Cavani — jméno je oblíbené napříč kulturami od Itálie po Latinskou Ameriku."
+        ),
+        "frantiska": .init(
+            language: "Germánský (latinizovaný)",
+            meaning: "Svobodná žena z kmene Franků — ženská forma Františka",
+            funFact: "Františka je ženská forma Františka — jméno, jež proslavil sv. František z Assisi, který se vzdal veškerého majetku a kázal ptákům. Je patronem zvířat a ekologie. Dnes ho nese i papež František — první latinoamerický a první jezuitský pontifex v historii."
+        ),
+        "viktorie": .init(
+            language: "Latinský",
+            meaning: "Vítězství (victoria = vítězství)",
+            funFact: "Viktorie — bohyně vítězství — je zobrazována s křídly a věncem. Dala jméno britské královně Viktorii, jejíž éra je dodnes vzorem průmyslového a kulturního rozmachu. Victoria Beckham, Victoria's Secret — jméno je celosvětově rozšířené a spojuje eleganci s úspěchem."
+        ),
+        "andela": .init(
+            language: "Řecký",
+            meaning: "Anděl, Boží posel (angelos = posel)",
+            funFact: "Anděla je česká forma jména Angela/Angelina. Angela Merkel jako první žena vedla Německo 16 let — nejdéle sloužící demokratická vůdkyně v novodobé historii. Jméno vychází z řeckého angelos (posel) — odtud anglický angel i evangelium (dobrá zpráva)."
+        ),
+        "matylda": .init(
+            language: "Germánský",
+            meaning: "Mocná v bitvě, bojovná síla (maht = moc + hild = bitva)",
+            funFact: "Matylda Anglická (12. stol.) bojovala o anglický trůn a vedla válku s Štěpánem z Blois — byl to první ženský nárok na anglický trůn. Waltzing Matilda — neoficiální australská hymna — opěvuje potulného dělníka. Jméno proslavila i Roaldova Dahl Matylda — nejčtenější dětský román o dívce s nadpřirozenými schopnostmi."
+        ),
+        "eduard": .init(
+            language: "Anglosaský (germánský)",
+            meaning: "Strážce majetku, bohatý ochránce (ead = bohatství + weard = strážce)",
+            funFact: "Eduard VIII. abdikoval z britského trůnu v roce 1936 kvůli lásce k rozvedené Američance Wallis Simpsonové — největší romantický skandál 20. stol. Eduard Beneš byl druhý prezident Československa. Edvard Grieg složil suitu Peer Gynt — nejznámější norské orchestrální dílo."
+        ),
+        "svetlana": .init(
+            language: "Slovanský",
+            meaning: "Světlá, jasná, zářivá (svět = světlo)",
+            funFact: "Světlana je slovanský překlad latinské Lucie nebo řecké Fóby — všechna tato jména znamenají světlo. Světlana Alexijevičová je běloruská novinářka a spisovatelka, nositelka Nobelovy ceny za literaturu (2015) — za svědectví o Černobylu, Afghánistánu a sovětském kolapsu."
+        ),
+        "ivona": .init(
+            language: "Germánský / Keltský",
+            meaning: "Tisové dřevo, tisový luk (iv = tis) — ženská forma Ivona",
+            funFact: "Ivona/Yvona je francouzská ženská forma jména Yves (z germánského iv = tis). Yvonne de Gaulle byla manželkou francouzského prezidenta Charlese de Gaulla. Tisové dřevo bylo středověkými lučištnými ceněno jako nejlepší materiál pro luky — luk byl zbraní hrdinů."
+        ),
+        "herbert": .init(
+            language: "Germánský",
+            meaning: "Zářivá armáda, slavné vojsko (heri = vojsko + beraht = zářivý)",
+            funFact: "Herbert George Wells napsal Stroj času a Válku světů — zakladatel vědeckofantastické literatury. Herbert von Karajan byl nejslavnějším dirigentem 20. stol. — dirigoval Berlínskou filharmonii 35 let. Prezident Herbert Hoover byl prvním americkým prezidentem narozeným západně od Mississipi."
+        ),
+        "radomil": .init(
+            language: "Slovanský",
+            meaning: "Radostný mír, mír radosti (rad + mír)",
+            funFact: "Radomil je starobylé slovanské dvousložkové jméno kombinující radost a mír. Svátek slaví 21. března — na jarní rovnodennost, první den jara. Kombinace rad- (radost) a mír (mír, svět) vyjadřuje dvě nejvyšší slovanské hodnoty. V moderní češtině je Radomil vzácným jménem s hlubokými kořeny."
+        ),
+        "marian": .init(
+            language: "Latinský / Hebrejský",
+            meaning: "Patřící Mariovi nebo Marii; nebo zbožný k Marii",
+            funFact: "Marián/Marian je ve střední Evropě oblíbené jméno s dvojím výkladem — buď forma latinského Marius, nebo zbožné jméno zasvěcené Panně Marii. Marián Hossa, slovák v NHL, vyhrál tři Stanley Cupy. Marian Anderson byla první Afroameričanka vystupující v newyorské Metropolitní opeře."
+        ),
+        "miroslava": .init(
+            language: "Slovanský",
+            meaning: "Mír a sláva — ženská forma Miroslava",
+            funFact: "Miroslava je ženská podoba slavného slovanského jména Miroslav. Krásné dvousložkové slovanské jméno — mír a sláva. Miroslava Němcová byla předsedkyní Poslanecké sněmovny ČR. Jméno je oblíbené zejména v generaci narozené 1950–1980."
+        ),
+        "elenka": .init(
+            language: "Řecký",
+            meaning: "Zářivá, světlá — zdrobnělina Heleny",
+            funFact: "Elena je mezinárodní forma Heleny — jméno rozšířené od Španělska po Rusko. Elena Ceaușescu, manželka rumunského diktátora, si přisvojovala vědecké tituly, jež nezasloužila — byl to jeden z největších akademických podvodů 20. stol. Elena je dnes oblíbenou formou v románských jazycích."
+        ),
+        "elena": .init(
+            language: "Řecký",
+            meaning: "Zářivá, světlá — románská/slovanská forma Heleny",
+            funFact: "Elena je rozšířená mezinárodní forma jména Helena. Vyskytuje se ve španělštině, italštině, ruštině i češtině. Elena Ferrante, anonymní italská autorka, napsala sérii Neapolských románů — literární fenomén přeložený do 45 jazyků. Elena Bonner bojovala s Andrejem Sacharovem za lidská práva v SSSR."
+        ),
+        "alexej": .init(
+            language: "Řecký",
+            meaning: "Obránce, ochránce (alexein = chránit, bránit)",
+            funFact: "Alexej je slovanská forma řeckého Alexandra. Carevič Alexej Nikolajevič trpěl hemofilií — nemocí, jíž trpěla celá rodina Romanovců a jež ovlivnila politiku Evropy. Léčitel Rasputin získal vliv nad carem právě díky zdánlivé pomoci chorému carevičovi."
+        ),
+        "ceslav": .init(
+            language: "Slovanský",
+            meaning: "Čest a sláva (čest + slava)",
+            funFact: "Česlav je starobylé slovanské jméno kombinující čest a slávu — dvě nejvyšší středověké hodnoty. Patří ke jménům, která přežila přes tisíc let české historie. Bl. Česlav Odrowąż byl dominikánský kněz a apoštol Slezska ve 13. stol. — zakladatel klášterů v Krakově a Praze."
+        ),
+        "bohumira": .init(
+            language: "Slovanský",
+            meaning: "Bohu milý mír, Bohu milý (bohu + mír)",
+            funFact: "Bohumír je mužská forma — Bohumira ženská. Slovanské jméno kombinující bohu (Bohu) a mír (mír, svět). Kořen mir (mír, svět) je jedním z nejplodnějších v slovanských jazycích — najdeme ho v Miroslavu, Vladimíru i Tikhomiru. Svátek slaví 8. listopadu."
+        ),
+        "bohumir": .init(
+            language: "Slovanský",
+            meaning: "Bohu milý mír, Bohu milý (bohu + mír)",
+            funFact: "Bohumír je starobylé slovanské jméno propojující Boha a mír. Kořen mir (mír, svět) sdílí s Miroslavem, Vladimírem i Slavomírem. V legendě jsou Bohumír a Sláva prarodiče Slovanů — symbol starodávnosti tohoto jména."
+        ),
+        "ondrejka": .init(
+            language: "Řecký",
+            meaning: "Mužná, statečná — česká zdrobnělina Ondřeje (andreios)",
+            funFact: "Ondřejka je ženská česká forma jména Ondřej. Sv. Ondřej byl prvním apoštolem Ježíše a patronem Skotska, Ruska, Řecka a Rumunska. Ondřejský kříž (tvar X) je na vlajce Skotska, Velké Británie i Ruského námořnictva."
+        ),
+        "rostislava": .init(
+            language: "Slovanský",
+            meaning: "Rozrůstající se sláva — ženská forma Rostislava (rosti = růst + slava)",
+            funFact: "Rostislava je ženská forma Rostislava. Kníže Rastislav Moravský pozval v roce 863 Cyrila a Metoděje — tím dal podnět ke vzniku první slovanské abecedy a literatury. Svátek slaví 19. dubna spolu s mužskou formou Rostislavem."
+        ),
+        "stanislava": .init(
+            language: "Slovanský",
+            meaning: "Stát si za svou slávou — ženská forma Stanislava (stan + slava)",
+            funFact: "Stanislava je ženská forma Stanislava. Sv. Stanislav byl krakovský biskup a mučedník, patron Polska. Stanislava Grycová nebo Stanislava Bartošová jsou nositelky tohoto jména v české historii. Svátek slaví 9. června."
+        ),
+        "xenie": .init(
+            language: "Řecký",
+            meaning: "Pohostinnost, cizinka (xenos = cizinec, host)",
+            funFact: "Xenie pochází z řeckého xenia — posvátná pohostinnost, která v Řecku zavazovala hostitele chránit i cizince. Zeus jako Xenios (Pohostinný) trestal porušení pohostinnosti. Kořen xen- je v xenofobii (strach z cizinců) i xenotransplantaci (transplantace od jiného druhu)."
+        ),
     ]
 }
