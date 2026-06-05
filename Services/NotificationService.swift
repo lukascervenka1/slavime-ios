@@ -152,7 +152,7 @@ final class NotificationService {
             if myPeople.isEmpty {
                 guard !calendarNames.isEmpty else { continue }
                 let names = calendarNames.prefix(4).joined(separator: ", ")
-                content.title = dayOffset == 0 ? "Dnes slaví svátek" : "Zítra slaví svátek"
+                content.title = "Dnes slaví svátek"
                 content.body = names
             } else {
                 let nameDayPeople = myPeople.filter {
@@ -171,7 +171,7 @@ final class NotificationService {
                 if !calendarNames.isEmpty {
                     parts.append("📅 " + calendarNames.prefix(3).joined(separator: ", "))
                 }
-                content.title = dayOffset == 0 ? "Slavíme dnes!" : "Slavíme zítra!"
+                content.title = "Slavíme dnes!"
                 content.body = parts.joined(separator: "\n")
             }
 
