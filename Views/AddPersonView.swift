@@ -2,6 +2,17 @@ import SwiftUI
 import SwiftData
 import PhotosUI
 
+/// Pracovní (draft) model výročí v editoru – má stabilní `id`,
+/// takže ForEach i mazání fungují spolehlivě.
+struct AnniversaryDraft: Identifiable {
+    let id = UUID()
+    var title: String
+    var icon: String
+    var month: Int
+    var day: Int
+    var year: Int?
+}
+
 struct AddPersonView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -41,8 +52,11 @@ struct AddPersonView: View {
     @State private var giftNote = ""
 
     // Výročí
-    @State private var anniversaries: [(title: String, icon: String, month: Int, day: Int, year: Int?)] = []
+    @State private var anniversaries: [AnniversaryDraft] = []
     @State private var showAddAnniversary = false
+
+    // Pojistka proti opakovanému načtení (onAppear může proběhnout vícekrát)
+    @State private var didLoad = false
 
     // Oslava
     @State private var hasParty = false
@@ -223,19 +237,19 @@ struct AddPersonView: View {
 
                 // MARK: – Výročí
                 Section {
-                    ForEach(anniversaries.indices, id: \.self) { i in
+                    ForEach(anniversaries) { ann in
                         HStack(spacing: 12) {
-                            Text(anniversaries[i].icon).font(.title3)
+                            Text(ann.icon).font(.title3)
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(anniversaries[i].title).font(.subheadline)
-                                Text(anniversaryDateString(month: anniversaries[i].month,
-                                                           day: anniversaries[i].day,
-                                                           year: anniversaries[i].year))
+                                Text(ann.title).font(.subheadline)
+                                Text(anniversaryDateString(month: ann.month,
+                                                           day: ann.day,
+                                                           year: ann.year))
                                     .font(.caption).foregroundStyle(.secondary)
                             }
                             Spacer()
                             Button(role: .destructive) {
-                                anniversaries.remove(at: i)
+                                anniversaries.removeAll { $0.id == ann.id }
                             } label: {
                                 Image(systemName: "trash")
                                     .foregroundStyle(.red)
@@ -255,7 +269,7 @@ struct AddPersonView: View {
                 }
                 .sheet(isPresented: $showAddAnniversary) {
                     AnniversaryPickerView { title, icon, month, day, year in
-                        anniversaries.append((title: title, icon: icon, month: month, day: day, year: year))
+                        anniversaries.append(AnniversaryDraft(title: title, icon: icon, month: month, day: day, year: year))
                     }
                 }
 
@@ -409,6 +423,10 @@ struct AddPersonView: View {
     }
 
     private func loadEditing() {
+        // Načti jen jednou – jinak by opakovaný onAppear přepsal rozdělané změny
+        // (např. právě smazané výročí by se vrátilo zpět).
+        guard !didLoad else { return }
+        didLoad = true
         guard let p = editingPerson else { return }
         name = p.name; lastName = p.lastName; selectedCategory = p.category
         emoji = p.emoji; selectedColorHex = p.colorHex
@@ -430,7 +448,7 @@ struct AddPersonView: View {
         giftNote = p.giftNote
         if let pd = p.partyDate { hasParty = true; partyDate = pd }
         partyRepeatsYearly = p.partyRepeatsYearly
-        anniversaries = p.anniversaries.map { (title: $0.title, icon: $0.icon, month: $0.month, day: $0.day, year: $0.year) }
+        anniversaries = p.anniversaries.map { AnniversaryDraft(title: $0.title, icon: $0.icon, month: $0.month, day: $0.day, year: $0.year) }
     }
 
     private func save() {
@@ -512,6 +530,9 @@ struct AddPersonView: View {
                         startDate: pd,
                         notes: "Oslava přidána přes aplikaci Slavíme.")
                 }
+                // Ulož nově přiřazená ID kalendářových událostí, jinak by se
+                // při příští úpravě nedala stará událost najít a smazat → duplicity.
+                try? modelContext.save()
             }
         }
         dismiss()
