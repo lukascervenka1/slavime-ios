@@ -266,11 +266,6 @@ struct AddPersonView: View {
                 } header: {
                     Label("Výročí", systemImage: "heart.text.square.fill").textCase(nil)
                 }
-                .sheet(isPresented: $showAddAnniversary) {
-                    AnniversaryPickerView { title, icon, month, day, year in
-                        anniversaries.append(AnniversaryDraft(title: title, icon: icon, month: month, day: day, year: year))
-                    }
-                }
 
                 // MARK: – Dárek
                 Section {
@@ -328,6 +323,13 @@ struct AddPersonView: View {
             }
             .sheet(isPresented: $showEmojiPicker) {
                 EmojiPickerView(selectedEmoji: $emoji).presentationDetents([.medium, .large])
+            }
+            // Sheet pro přidání výročí drží na úrovni NavigationStacku (ne na Section),
+            // jinak by se při změně seznamu výročí prezentace shodila a zavřela celý editor.
+            .sheet(isPresented: $showAddAnniversary) {
+                AnniversaryPickerView { title, icon, month, day, year in
+                    anniversaries.append(AnniversaryDraft(title: title, icon: icon, month: month, day: day, year: year))
+                }
             }
             .onAppear { loadEditing() }
         }
