@@ -39,27 +39,6 @@ final class CalendarService {
         return event.eventIdentifier
     }
 
-    // MARK: – Roční opakující se oslava (jen měsíc+den+čas)
-
-    @discardableResult
-    func addYearlyPartyEvent(title: String, month: Int, day: Int, hour: Int, minute: Int) -> String? {
-        let event = EKEvent(eventStore: store)
-        event.title    = title
-        event.calendar = store.defaultCalendarForNewEvents
-
-        var comps = DateComponents()
-        comps.year = Calendar.current.component(.year, from: Date())
-        comps.month = month; comps.day = day
-        comps.hour = hour; comps.minute = minute
-        guard let date = Calendar.current.date(from: comps) else { return nil }
-        event.startDate = date
-        event.endDate   = date.addingTimeInterval(3 * 3600)
-        event.recurrenceRules = [EKRecurrenceRule(recurrenceWith: .yearly, interval: 1, end: nil)]
-
-        try? store.save(event, span: .futureEvents, commit: true)
-        return event.eventIdentifier
-    }
-
     // MARK: – Jednorázová událost (oslava)
 
     @discardableResult

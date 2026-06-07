@@ -61,7 +61,6 @@ struct AddPersonView: View {
     // Oslava
     @State private var hasParty = false
     @State private var partyDate = Calendar.current.date(bySettingHour: 17, minute: 0, second: 0, of: Date()) ?? Date()
-    @State private var partyRepeatsYearly = false
 
     // Notifikace
     @State private var notifyDayBefore = true
@@ -334,38 +333,6 @@ struct AddPersonView: View {
         }
     }
 
-    // MARK: – Party date month/day bindings (pro roční opakování)
-
-    private var partyMonthBinding: Binding<Int> {
-        Binding(
-            get: { Calendar.current.component(.month, from: partyDate) },
-            set: { m in
-                let d = Calendar.current.component(.day, from: partyDate)
-                let h = Calendar.current.component(.hour, from: partyDate)
-                let min = Calendar.current.component(.minute, from: partyDate)
-                var c = DateComponents()
-                c.year = Calendar.current.component(.year, from: Date())
-                c.month = m; c.day = d; c.hour = h; c.minute = min
-                partyDate = Calendar.current.date(from: c) ?? partyDate
-            }
-        )
-    }
-
-    private var partyDayBinding: Binding<Int> {
-        Binding(
-            get: { Calendar.current.component(.day, from: partyDate) },
-            set: { d in
-                let m = Calendar.current.component(.month, from: partyDate)
-                let h = Calendar.current.component(.hour, from: partyDate)
-                let min = Calendar.current.component(.minute, from: partyDate)
-                var c = DateComponents()
-                c.year = Calendar.current.component(.year, from: Date())
-                c.month = m; c.day = d; c.hour = h; c.minute = min
-                partyDate = Calendar.current.date(from: c) ?? partyDate
-            }
-        )
-    }
-
     // MARK: – Avatar preview
 
     @ViewBuilder
@@ -447,7 +414,6 @@ struct AddPersonView: View {
         giftForBirthday = p.giftReminderBirthday; giftDaysBirthday = p.giftDaysBeforeBirthday
         giftNote = p.giftNote
         if let pd = p.partyDate { hasParty = true; partyDate = pd }
-        partyRepeatsYearly = p.partyRepeatsYearly
         anniversaries = p.anniversaries.map { AnniversaryDraft(title: $0.title, icon: $0.icon, month: $0.month, day: $0.day, year: $0.year) }
     }
 
@@ -478,7 +444,6 @@ struct AddPersonView: View {
             existing.giftReminderBirthday = giftForBirthday; existing.giftDaysBeforeBirthday = giftDaysBirthday
             existing.giftNote = giftNote
             existing.partyDate = hasParty ? partyDate : nil
-            existing.partyRepeatsYearly = partyRepeatsYearly
             person = existing
         } else {
             person = Person(
