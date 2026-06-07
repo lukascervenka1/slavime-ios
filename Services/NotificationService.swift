@@ -131,10 +131,12 @@ final class NotificationService {
     /// Naplánuje denní ranní přehled na dalších 7 dní.
     /// Volej při každém spuštění aplikace, pokud je funkce zapnuta.
     func scheduleDailyDigest(hour: Int, minute: Int, people: [Person]) {
-        cancelDailyDigest()
         let cal = Calendar.current
         let today = cal.startOfDay(for: Date())
 
+        // 1) Sestav všechny notifikace dopředu – tady (na hlavním vlákně) je
+        //    bezpečné číst SwiftData objekty Person.
+        var requests: [UNNotificationRequest] = []
         for dayOffset in 0...6 {
             guard let targetDate = cal.date(byAdding: .day, value: dayOffset, to: today) else { continue }
             let month = cal.component(.month, from: targetDate)
@@ -180,9 +182,22 @@ final class NotificationService {
             let trigger = UNCalendarNotificationTrigger(dateMatching: dc, repeats: false)
             let year = cal.component(.year, from: targetDate)
             let id = "daily-digest-\(year)-\(String(format: "%02d", month))-\(String(format: "%02d", day))"
-            UNUserNotificationCenter.current().add(
-                UNNotificationRequest(identifier: id, content: content, trigger: trigger)
-            )
+            requests.append(UNNotificationRequest(identifier: id, content: content, trigger: trigger))
+        }
+
+        // 2) Nejdřív smaž staré přehledy a AŽ POTÉ (uvnitř téhož completion
+        //    handleru) přidej nové. Kdyby mazání běželo zvlášť a asynchronně,
+        //    doběhlo by často až po přidání a smazalo by čerstvě naplánované
+        //    notifikace se stejným ID (překrývající se dny) → výpadky dnů.
+        let center = UNUserNotificationCenter.current()
+        center.getPendingNotificationRequests { pending in
+            let stale = pending
+                .filter { $0.identifier.hasPrefix("daily-digest-") }
+                .map(\.identifier)
+            center.removePendingNotificationRequests(withIdentifiers: stale)
+            for request in requests {
+                center.add(request)
+            }
         }
     }
 
